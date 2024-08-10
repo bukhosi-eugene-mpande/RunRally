@@ -1,22 +1,20 @@
 import '@/styles/globals.css';
 import { Metadata, Viewport } from 'next';
-import { Link } from '@nextui-org/link';
 import clsx from 'clsx';
 
 import { Providers } from './providers';
 
 import { siteConfig } from '@/config/site';
 import { fontSans } from '@/config/fonts';
-import { Navbar } from '@/components/navbar';
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
+    default: 'RunRally',
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logo.png',
   },
 };
 
@@ -42,7 +40,7 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'light' }}>
-          <div>
+          <div className='font-sans'>
             <main>{children}</main>
           </div>
         </Providers>

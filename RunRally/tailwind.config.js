@@ -8,7 +8,14 @@ module.exports = {
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customRed: 'rgba(214, 200, 165, 1)'
+      },
+      fontFamily: {
+        sans: ['Open Sans', 'sans-serif'],
+      },
+    },
   },
   darkMode: 'class',
   plugins: [nextui()],
