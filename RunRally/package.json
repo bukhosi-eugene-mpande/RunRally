@@ -10,6 +10,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@nextui-org/button": "2.0.37",
     "@nextui-org/code": "2.0.32",
     "@nextui-org/input": "2.2.4",
@@ -31,7 +33,9 @@
     "next-themes": "^0.2.1",
     "prettier": "^3.3.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
     "@types/node": "20.5.7",
