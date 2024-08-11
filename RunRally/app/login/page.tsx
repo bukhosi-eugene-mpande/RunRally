@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-export default function SignIn() {
+export default function Login() {
   return (
     <section className="relative h-screen">
       <div
@@ -12,35 +12,37 @@ export default function SignIn() {
         }}
       ></div>
       <div className="relative">
-        <div className="flex justify-between h-screen">
-          <div className="flex items-center h-full px-20 relative">
+        <div className="flex flex-col lg:flex-row justify-between h-screen">
+          <div className="flex items-center h-full px-10 lg:px-20 relative">
             <div>
-              <div className="text-white p-8 text-center">
-                <div className="max-w-5xl text-center">
+              <div className="text-white p-4 lg:p-8 text-center">
+                <div className="max-w-3xl lg:max-w-5xl text-center">
                   <Image
-                    width={400}
-                    height={500}
+                    width={300}
+                    height={400}
                     alt="RunRally logo"
                     src="/logo_cropped.png"
                     className="mx-auto"
                   />
-                  <h1 className="text-2xl sm:text-5xl mt-4">
+                  <h1 className="text-xl lg:text-2xl xl:text-5xl mt-4">
                     The ultimate running community where members come together.
                   </h1>
                 </div>
               </div>
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-                <p className="text-4xl mt-4">Run together, thrive together.</p>
+              <div className="absolute bottom-4 lg:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+                <p className="text-2xl lg:text-4xl mt-2 lg:mt-4">
+                  Run together, thrive together.
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center w-full max-w-md px-3 mx-auto lg:w-2/6">
-            <div className="flex-1 rounded-2xl bg-gray-500 bg-opacity-40 p-7 m-auto">
+          <div className="flex items-center w-full max-w-md px-5 lg:px-3 mx-auto lg:w-2/6">
+            <div className="flex-1 rounded-2xl bg-gray-500 bg-opacity-40 p-5 lg:p-7 m-auto">
               <div className="text-center">
                 <div>
-                  <h1 className="text-4xl font-bold text-white sm:text-3xl">
-                    Sign Up
+                  <h1 className="text-3xl lg:text-4xl font-bold text-white">
+                    Login
                   </h1>
                 </div>
               </div>
@@ -58,23 +60,7 @@ export default function SignIn() {
                       type="email"
                       name="email"
                       id="email"
-                      placeholder="example@example.com"
-                      className="block w-full px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border border-gray-600 rounded-lg dark:text-gray-300 focus:border-green-400 dark:focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="username"
-                      className="block pt-1 m-2 text-lg font-bold text-white"
-                    >
-                      Username
-                    </label>
-                    <input
-                      type="text"
-                      name="username"
-                      id="username"
-                      placeholder="Username"
+                      placeholder="John.Doe@example.com"
                       className="block w-full px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border border-gray-600 rounded-lg dark:text-gray-300 focus:border-green-400 dark:focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     />
                   </div>
@@ -98,39 +84,20 @@ export default function SignIn() {
                   </div>
 
                   <div className="mt-6">
-                    <div className="flex justify-between mb-2">
-                      <label
-                        htmlFor="confirm_password"
-                        className="text-white text-lg font-bold"
-                      >
-                        Confirm Password
-                      </label>
-                    </div>
-                    <input
-                      type="password"
-                      name="confirm_password"
-                      id="confirm_password"
-                      placeholder="Confirm Password"
-                      className="block w-full px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border border-gray-600 rounded-lg dark:text-gray-300  focus:border-green-400 dark:focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                    />
-                  </div>
-
-                  <div className="mt-6">
                     <button className="w-full text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50">
-                      Sign Up
+                      Login
                     </button>
                   </div>
                 </form>
 
                 <p className="mt-6 text-lg text-center text-white">
-                  Already have an account?{' '}
+                  Don't have an account?{' '}
                   <a
-                    href="/login"
+                    href="/signup"
                     className="focus:outline-none text-black focus:underline hover:underline"
                   >
-                    Login
+                    Sign Up
                   </a>
-                  .
                 </p>
 
                 <div className="py-3 flex items-center text-xs text-white uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6">
@@ -178,7 +145,7 @@ export default function SignIn() {
                       </clipPath>
                     </defs>
                   </svg>
-                  Sign up with Google
+                  Login with Google
                 </button>
                 <button
                   type="button"
@@ -200,7 +167,7 @@ export default function SignIn() {
                       <path d="M380.844 297.529c.787 84.752 74.349 112.955 75.164 113.314-.622 1.988-11.754 40.191-38.756 79.652-23.343 34.117-47.568 68.107-85.731 68.811-37.499.691-49.557-22.236-92.429-22.236-42.859 0-56.256 21.533-91.753 22.928-36.837 1.395-64.889-36.891-88.424-70.883-48.093-69.53-84.846-196.475-35.496-282.165 24.516-42.554 68.328-69.501 115.882-70.192 36.173-.69 70.315 24.336 92.429 24.336 22.1 0 63.59-30.096 107.208-25.676 18.26.76 69.517 7.376 102.429 55.552-2.652 1.644-61.159 35.704-60.523 106.559M310.369 89.418C329.926 65.745 343.089 32.79 339.498 0 311.308 1.133 277.22 18.785 257 42.445c-18.121 20.952-33.991 54.487-29.709 86.628 31.421 2.431 63.52-15.967 83.078-39.655"></path>
                     </g>
                   </svg>
-                  Sign up with Apple
+                  Login with Apple
                 </button>
                 <button
                   type="button"
@@ -229,7 +196,7 @@ export default function SignIn() {
                       ></path>
                     </g>
                   </svg>
-                  Sign up with Facebook
+                  Login with Facebook
                 </button>
               </div>
             </div>
