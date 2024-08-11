@@ -89,8 +89,10 @@ export default function Login() {
       );
     } else {
       toast.dismiss();
-      toast.success('Login successful!');
-      router.push('/');
+      toast.success('Login successful!', { duration: 1500 });
+      setTimeout(() => {
+        router.push('/'); // Redirect to the homepage after a delay
+      }, 1100);
     }
   };
   return (
