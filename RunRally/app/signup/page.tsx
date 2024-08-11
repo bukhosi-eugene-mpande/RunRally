@@ -298,7 +298,7 @@ export default function SignIn() {
                       href="/login"
                       className="focus:outline-none text-black focus:underline hover:underline"
                     >
-                      Sign In.
+                      Login.
                     </a>
                   </p>
 
