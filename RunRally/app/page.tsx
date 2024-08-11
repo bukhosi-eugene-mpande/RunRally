@@ -25,12 +25,12 @@ export default function Home() {
             </h1>
             <div className="mt-8 flex font-extrabold flex-wrap justify-center gap-24">
               <a href="/signup" className="relative px-8 py-4 text-lg font-bold text-white group">
-                <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-customRed group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-customGreen group-hover:translate-x-0 group-hover:translate-y-0"></span>
                 <span className="absolute inset-0 w-full h-full border-1 border-white"></span>
                 <span className="relative">Sign Up</span>
               </a>
               <a href="/login" className="relative px-8 py-4 text-lg font-bold text-white group">
-                <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-customRed group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-customGreen group-hover:translate-x-0 group-hover:translate-y-0"></span>
                 <span className="absolute inset-0 w-full h-full border-1 border-white"></span>
                 <span className="relative">Login</span>
               </a>
