@@ -29,7 +29,7 @@ export default function Home() {
             <div className="mt-8 flex font-extrabold flex-wrap justify-center gap-24">
               <a
                 href="/signup"
-                className="relative px-8 py-4 text-lg font-bold text-white group"
+                className="relative w-40 px-8 py-4 text-lg font-bold text-white group"
               >
                 <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring group-hover:translate-x-0 group-hover:translate-y-0"></span>
                 <span className="absolute inset-0 w-full h-full border-1 border-white rounded-lg"></span>
@@ -37,7 +37,7 @@ export default function Home() {
               </a>
               <a
                 href="/login"
-                className="relative px-8 py-4 text-lg font-bold text-white group"
+                className="relative w-40 px-8 py-4 text-lg font-bold text-white group"
               >
                 <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring group-hover:translate-x-0 group-hover:translate-y-0"></span>
                 <span className="absolute inset-0 w-full h-full border-1 border-white rounded-lg"></span>
