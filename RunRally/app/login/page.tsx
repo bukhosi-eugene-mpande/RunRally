@@ -8,7 +8,7 @@ export default function Login() {
       <div
         className="absolute inset-0 bg-center filter blur-md"
         style={{
-          backgroundImage: 'url(/background.jpeg)',
+          backgroundImage: 'url(/background.jpg)',
         }}
       ></div>
       <div className="relative">
