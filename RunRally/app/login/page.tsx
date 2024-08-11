@@ -29,8 +29,8 @@ export default function Login() {
                   </h1>
                 </div>
               </div>
-              <div className="absolute bottom-4 lg:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-                <p className="text-2xl lg:text-4xl mt-2 lg:mt-4">
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+                <p className="text-4xl text-white mt-4">
                   Run together, thrive together.
                 </p>
               </div>
@@ -96,7 +96,7 @@ export default function Login() {
                     href="/signup"
                     className="focus:outline-none text-black focus:underline hover:underline"
                   >
-                    Sign Up
+                    Sign Up.
                   </a>
                 </p>
 
