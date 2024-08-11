@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function SignIn() {
   return (
@@ -17,13 +18,15 @@ export default function SignIn() {
             <div>
               <div className="text-white p-8 text-center">
                 <div className="max-w-5xl text-center">
-                  <Image
-                    width={400}
-                    height={500}
-                    alt="RunRally logo"
-                    src="/logo_cropped.png"
-                    className="mx-auto"
-                  />
+                  <Link href="/">
+                    <Image
+                      width={400}
+                      height={500}
+                      alt="RunRally logo"
+                      src="/logo_cropped.png"
+                      className="mx-auto"
+                    />
+                  </Link>
                   <h1 className="text-2xl sm:text-5xl mt-4">
                     The ultimate running community where members come together.
                   </h1>

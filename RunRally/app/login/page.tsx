@@ -1,8 +1,46 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Login() {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = (event: any) => {
+    event.preventDefault();
+
+    // Basic validation
+    if (!email || !password) {
+      setError('Both email and password are required.');
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    // Clear error if validation passes
+    setError('');
+
+    // Perform login logic here (e.g., API call, authentication check)
+
+    // Then navigate to the homepage
+    router.push('/');
+  };
+  const handleLogin2 = (event: any) => {
+    event.preventDefault();
+
+    // Perform login logic here (e.g., API call, authentication check)
+
+    // Then navigate to the homepage
+    router.push('/');
+  };
   return (
     <section className="relative h-screen">
       <div
@@ -12,47 +50,52 @@ export default function Login() {
         }}
       ></div>
       <div className="relative">
-        <div className="flex flex-col lg:flex-row justify-between h-screen">
-          <div className="flex items-center h-full px-10 lg:px-20 relative">
+        <div className="flex flex-col lg:flex-row justify-center lg:justify-between h-screen">
+          <div className="flex items-center h-full px-6 sm:px-10 lg:px-20 relative justify-center lg:justify-start">
             <div>
-              <div className="text-white p-4 lg:p-8 text-center">
-                <div className="max-w-3xl lg:max-w-5xl text-center">
-                  <Image
-                    width={300}
-                    height={400}
-                    alt="RunRally logo"
-                    src="/logo_cropped.png"
-                    className="mx-auto"
-                  />
-                  <h1 className="text-xl lg:text-2xl xl:text-5xl mt-4">
+              <div className="text-white p-4 sm:p-6 lg:p-8 text-center lg:text-left">
+                <div className="max-w-sm sm:max-w-md lg:max-w-5xl mx-auto lg:mx-0">
+                  <Link href="/">
+                    <Image
+                      width={400} // Smaller for small screens
+                      height={500}
+                      alt="RunRally logo"
+                      src="/logo_cropped.png"
+                      className="mx-auto"
+                    />
+                  </Link>
+                  <h2 className="text-base sm:text-xl lg:text-2xl xl:text-5xl mt-2 sm:mt-4 text-center">
                     The ultimate running community where members come together.
-                  </h1>
+                  </h2>
                 </div>
               </div>
-              <div className="absolute bottom-4 lg:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-                <p className="text-2xl lg:text-4xl mt-2 lg:mt-4">
+              <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+                <p className="text-base sm:text-xl lg:text-4xl mt-2 lg:mt-4  text-white">
                   Run together, thrive together.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center w-full max-w-md px-5 lg:px-3 mx-auto lg:w-2/6">
-            <div className="flex-1 rounded-2xl bg-gray-500 bg-opacity-40 p-5 lg:p-7 m-auto">
+          <div className="flex items-center w-full max-w-xs sm:max-w-md lg:max-w-lg px-4 sm:px-5 lg:px-3 mx-auto lg:w-2/6">
+            <div className="flex-1 rounded-2xl bg-gray-500 bg-opacity-40 p-4 sm:p-5 lg:p-7 m-auto">
               <div className="text-center">
                 <div>
-                  <h1 className="text-3xl lg:text-4xl font-bold text-white">
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
                     Login
                   </h1>
                 </div>
               </div>
 
-              <div className="mt-8">
-                <form>
+              <div className="mt-4 sm:mt-6 lg:mt-8">
+                <form onSubmit={handleLogin}>
+                  {error && (
+                    <p className="text-red-500 text-sm sm:text-lg">{error}</p>
+                  )}
                   <div>
                     <label
                       htmlFor="email"
-                      className="font-bold block m-2 text-lg text-white "
+                      className="font-bold block m-1 sm:m-2 text-sm sm:text-lg text-white"
                     >
                       Email Address
                     </label>
@@ -61,15 +104,17 @@ export default function Login() {
                       name="email"
                       id="email"
                       placeholder="John.Doe@example.com"
-                      className="block w-full px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border border-gray-600 rounded-lg dark:text-gray-300 focus:border-green-400 dark:focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                      className="block w-full px-3 sm:px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border border-gray-600 rounded-lg focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
 
-                  <div className="mt-6">
+                  <div className="mt-4 sm:mt-6">
                     <div className="flex justify-between mb-2">
                       <label
                         htmlFor="password"
-                        className="text-white text-lg font-bold"
+                        className="text-white text-sm sm:text-lg font-bold"
                       >
                         Password
                       </label>
@@ -79,18 +124,23 @@ export default function Login() {
                       name="password"
                       id="password"
                       placeholder="Password"
-                      className="block w-full px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border rounded-lg dark:text-gray-300 border-gray-600 focus:border-green-400 dark:focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                      className="block w-full px-3 sm:px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border rounded-lg border-gray-600 focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
 
-                  <div className="mt-6">
-                    <button className="w-full text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50">
+                  <div className="mt-4 sm:mt-6">
+                    <button
+                      className="w-full text-sm sm:text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
+                      onClick={handleLogin}
+                    >
                       Login
                     </button>
                   </div>
                 </form>
 
-                <p className="mt-6 text-lg text-center text-white">
+                <p className="mt-4 sm:mt-6 text-sm sm:text-lg text-center text-white">
                   Don't have an account?{' '}
                   <a
                     href="/signup"
@@ -100,13 +150,14 @@ export default function Login() {
                   </a>
                 </p>
 
-                <div className="py-3 flex items-center text-xs text-white uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6">
+                <div className="py-2 sm:py-3 flex items-center text-xs sm:text-sm text-white uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6">
                   Or
                 </div>
 
                 <button
                   type="button"
                   className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                  onClick={handleLogin2}
                 >
                   <svg
                     className="shrink-0 size-4"
@@ -150,6 +201,7 @@ export default function Login() {
                 <button
                   type="button"
                   className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
+                  onClick={handleLogin2}
                 >
                   <svg
                     className="shrink-0 size-4"
@@ -172,6 +224,7 @@ export default function Login() {
                 <button
                   type="button"
                   className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
+                  onClick={handleLogin2}
                 >
                   <svg
                     className="shrink-0 size-5"
