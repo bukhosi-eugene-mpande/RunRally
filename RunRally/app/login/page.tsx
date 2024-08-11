@@ -157,7 +157,7 @@ export default function Login() {
                         type="email"
                         name="email"
                         id="email"
-                        placeholder="John.Doe@example.com"
+                        placeholder="example@example.com"
                         className="block w-full px-3 sm:px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border border-gray-600 rounded-lg focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         value={email}
                         onChange={handleEmailChange}
