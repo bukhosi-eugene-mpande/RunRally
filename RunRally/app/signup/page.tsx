@@ -258,7 +258,7 @@ export default function SignIn() {
 
                   <div className="mt-6">
                   <button
-                    className="w-full text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-customGreen rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
+                    className="w-full text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
                     onClick={handleSignUpClick}
                   >
                     Sign Up
@@ -266,7 +266,7 @@ export default function SignIn() {
                   </div>
                 </form>
 
-                <p className="mt-6 font-extrabold text-lg text-center text-white">
+                <p className="mt-6 text-lg text-center text-white">
                   Already have an account?{' '}
                   <a
                     href="/login"
