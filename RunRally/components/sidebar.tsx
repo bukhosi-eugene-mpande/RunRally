@@ -35,7 +35,7 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
             className={`text-white px-4 py-2 mb-2 cursor-pointer text-center font-bold ${
               activeCategory === category
                 ? 'bg-green-600 font-bold'
-                : 'hover:bg-green-600'
+                : 'hover:bg-green-600 rounded'
             }`}
           >
             {category}
