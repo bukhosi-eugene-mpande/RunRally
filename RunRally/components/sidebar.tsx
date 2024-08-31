@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation'; // Import useRouter and usePathname hooks
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,14 +18,23 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
     'Equipment',
   ];
   const router = useRouter();
+  const pathname = usePathname(); // Get the current path
 
+  // Map URL paths to categories
+  const routeMap: Record<string, string> = {
+    '/running-vests': 'Running vests',
+    '/shop': 'Merchandise',
+    '/fitbit': 'Fitness devices',
+    '/equipment': 'Equipment',
+  };
+
+  // Update active category based on current pathname
   useEffect(() => {
-    // Retrieve active category from local storage on component mount
-    const storedCategory = localStorage.getItem('activeCategory');
-    if (storedCategory) {
-      setActiveCategory(storedCategory);
+    const currentCategory = routeMap[pathname];
+    if (currentCategory) {
+      setActiveCategory(currentCategory);
     }
-  }, []);
+  }, [pathname, routeMap]);
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category);
@@ -33,17 +42,13 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
     // Save the active category to local storage
     localStorage.setItem('activeCategory', category);
 
-    // Define routes based on categories
-    const routeMap: Record<string, string> = {
-      'Running vests': '/running-vests',
-      Merchandise: '/shop',
-      'Fitness devices': '/fitbit',
-      Equipment: '/equipment',
-    };
-
     // Navigate to the corresponding route
-    if (routeMap[category]) {
-      router.push(routeMap[category]);
+    const categoryPath = Object.entries(routeMap).find(
+      ([, value]) => value === category,
+    )?.[0];
+
+    if (categoryPath) {
+      router.push(categoryPath);
     }
   };
 
