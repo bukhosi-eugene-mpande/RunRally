@@ -1,6 +1,9 @@
 // components/ProductList.tsx
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 interface Product {
   name: string;
@@ -12,16 +15,26 @@ const products: Product[] = [
   { name: 'RunRally Shirt Blue', price: 349, image: '/shirt_blue.png' },
   { name: 'RunRally Shirt Black', price: 349, image: '/shirt_black.png' },
   { name: 'RunRally Visor Pink', price: 200, image: '/visor_pink.png' },
-  { name: 'RunRally Visor Black', price: 200, image: '/visor_black.png' },
+  { name: 'RunRally Visor White', price: 200, image: '/visor_white.png' },
+  { name: 'RunRally Cap Red', price: 150, image: '/cap_red.png' },
+  { name: 'RunRally Cap Pink', price: 150, image: '/cap_pink.png' },
 ];
 
 const ProductList: React.FC = () => {
+  const [activeHearts, setActiveHearts] = useState<Record<string, boolean>>({});
+
+  const handleHeartClick = (productName: string) => {
+    setActiveHearts((prevState) => ({
+      ...prevState,
+      [productName]: !prevState[productName], // Toggle the heart state for the specific product
+    }));
+  };
   return (
     <div className="flex flex-col space-y-4">
       {products.map((product) => (
         <div
           key={product.name}
-          className="flex items-center bg-white p-4 shadow rounded"
+          className="flex items-center bg-white p-6 shadow rounded w-full md:w-3/4 lg:w-2/3 transform transition duration-300 ease-in-out hover:shadow-lg hover:scale-105 cursor-pointer"
         >
           <Image
             src={product.image}
@@ -29,16 +42,21 @@ const ProductList: React.FC = () => {
             width={80}
             height={80}
           />
-          <div className="ml-4 flex-1">
-            <h2 className="font-semibold text-lg">{product.name}</h2>
-            <p>R {product.price}</p>
+          <div className="ml-4 flex-1 flex flex-col items-center justify-center">
+            <h2 className="font-semibold text-2xl">{product.name}</h2>
+            <p className="text-xl font-semibold">R {product.price}</p>
           </div>
-          <div className="flex space-x-4">
-            <button className="text-gray-600">
-              <i className="fas fa-cart-plus"></i>
+          <div className="flex flex-col space-y-3">
+            <button className="`text-black-600 hover:text-green-600 hover:scale-110 cursor-pointer">
+              <FontAwesomeIcon icon={faCartPlus} size="lg" />
             </button>
-            <button className="text-gray-600">
-              <i className="far fa-heart"></i>
+            <button
+              className={`text-black-600 hover:text-red-600 hover:scale-110 cursor-pointer ${
+                activeHearts[product.name] ? 'text-red-600' : ''
+              }`}
+              onClick={() => handleHeartClick(product.name)}
+            >
+              <FontAwesomeIcon icon={faHeart} size="lg" />
             </button>
           </div>
         </div>
