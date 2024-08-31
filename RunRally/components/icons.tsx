@@ -1,28 +1,24 @@
 import * as React from 'react';
+import Image from 'next/image';
+import { IconSvgProps, LogoProps } from '@/types';
 
-import { IconSvgProps } from '@/types';
-
-export const Logo: React.FC<IconSvgProps> = ({
-  size = 36,
+export const Logo: React.FC<LogoProps> = ({
+  size = 150,
   width,
   height,
   ...props
-}) => (
-  <svg
-    fill="none"
-    height={size || height}
-    viewBox="0 0 32 32"
-    width={size || width}
-    {...props}
-  >
-    <path
-      clipRule="evenodd"
-      d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-      fill="currentColor"
-      fillRule="evenodd"
+}) => {
+  const { src,alt, ...restProps } = props;
+  return (
+    <Image
+      src="/logo_cropped.png"
+      width={typeof size === 'number' ? size : Number(width)}
+      height={typeof size === 'number' ? size : Number(height)}
+      alt="RunRally Logo"
+      {...restProps}
     />
-  </svg>
-);
+  );
+};
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({
   size = 24,
@@ -65,6 +61,37 @@ export const TwitterIcon: React.FC<IconSvgProps> = ({
     </svg>
   );
 };
+
+export const ShoppingCartIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+     height={size || height}
+     width={size || width}
+     viewBox="0 0 24 24" 
+     fill="none" 
+     xmlns="http://www.w3.org/2000/svg"
+     {...props}
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier"> 
+        <path 
+          d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" 
+          stroke="#ffffff" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round">
+        </path> 
+      </g>
+    </svg>
+  );
+};
+
 
 export const GithubIcon: React.FC<IconSvgProps> = ({
   size = 24,
