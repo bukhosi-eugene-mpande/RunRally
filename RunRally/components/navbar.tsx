@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -13,7 +13,7 @@ import { Kbd } from '@nextui-org/kbd';
 import { Link } from '@nextui-org/link';
 import { Input } from '@nextui-org/input';
 import { link as linkStyles } from '@nextui-org/theme';
-import { User } from "@nextui-org/react";
+import { User } from '@nextui-org/react';
 import NextLink from 'next/link';
 import clsx from 'clsx';
 
@@ -53,7 +53,7 @@ export const Navbar = () => {
     <NextUINavbar maxWidth="full" position="sticky">
       <li>
         <div className="gap-3 max-w-fit">
-          <Logo src='' alt='' />
+          <Logo src="" alt="" />
         </div>
       </li>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
@@ -84,10 +84,10 @@ export const Navbar = () => {
         </NavbarItem>
 
         <NavbarItem className="hidden sm:flex gap-2">
-          <User   
+          <User
             name=""
             avatarProps={{
-              src: "https://avatars.githubusercontent.com/u/30373425?v=4"
+              src: 'https://avatars.githubusercontent.com/u/30373425?v=4',
             }}
           />
         </NavbarItem>
