@@ -1,7 +1,7 @@
-'use client'; // Ensure this line is present
+'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Ensure correct import for Next.js 13+
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,17 +11,33 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
   ...props
 }) => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const categories = ['Running vests', 'Merchandise', 'FitBit', 'Equipment'];
-  const router = useRouter(); // Initialize useRouter hook
+  const categories = [
+    'Running vests',
+    'Merchandise',
+    'Fitness devices',
+    'Equipment',
+  ];
+  const router = useRouter();
+
+  useEffect(() => {
+    // Retrieve active category from local storage on component mount
+    const storedCategory = localStorage.getItem('activeCategory');
+    if (storedCategory) {
+      setActiveCategory(storedCategory);
+    }
+  }, []);
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category);
 
+    // Save the active category to local storage
+    localStorage.setItem('activeCategory', category);
+
     // Define routes based on categories
     const routeMap: Record<string, string> = {
       'Running vests': '/running-vests',
-      Merchandise: 'shop',
-      FitBit: '/fitbit',
+      Merchandise: '/shop',
+      'Fitness devices': '/fitbit',
       Equipment: '/equipment',
     };
 
@@ -54,7 +70,7 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
             onClick={() => handleCategoryClick(category)}
             className={`text-white px-4 py-2 mb-2 cursor-pointer text-center font-bold ${
               activeCategory === category
-                ? 'bg-green-600 font-bold'
+                ? 'bg-green-600 font-bold rounded'
                 : 'hover:bg-green-600 rounded'
             }`}
           >
