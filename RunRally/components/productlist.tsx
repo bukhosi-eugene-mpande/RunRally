@@ -8,22 +8,20 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
 
+// Define the Product interface
 interface Product {
   name: string;
   price: number;
   image: string;
 }
 
-const products: Product[] = [
-  { name: 'RunRally Shirt Blue', price: 349, image: '/shirt_blue.png' },
-  { name: 'RunRally Shirt Black', price: 349, image: '/shirt_black.png' },
-  { name: 'RunRally Visor Pink', price: 200, image: '/visor_pink.png' },
-  { name: 'RunRally Visor White', price: 200, image: '/visor_white.png' },
-  { name: 'RunRally Cap Red', price: 150, image: '/cap_red.png' },
-  { name: 'RunRally Cap Pink', price: 150, image: '/cap_pink.png' },
-];
+// Define the props for the ProductList component
+interface ProductListProps extends React.HTMLAttributes<HTMLDivElement> {
+  products: Product[]; // Add products prop
+}
 
-const ProductList: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+const ProductList: React.FC<ProductListProps> = ({
+  products,
   className,
   ...props
 }) => {
@@ -54,11 +52,11 @@ const ProductList: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
             <p className="text-xl font-semibold">R {product.price}</p>
           </div>
           <div className="flex flex-col space-y-3">
-            <button className="text-black-600 hover:text-green-500 hover:scale-110 cursor-pointer">
+            <button className="text-gray-600 hover:text-green-500 hover:scale-110 cursor-pointer">
               <FontAwesomeIcon icon={faCartPlus} size="lg" />
             </button>
             <button
-              className={`text-black-600 hover:text-red-600 hover:scale-110 cursor-pointer ${
+              className={`text-gray-600 hover:text-red-600 hover:scale-110 cursor-pointer ${
                 activeHearts[product.name] ? 'text-red-600' : ''
               }`}
               onClick={() => handleHeartClick(product.name)}
