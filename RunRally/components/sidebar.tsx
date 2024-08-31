@@ -1,5 +1,7 @@
-'use client';
+'use client'; // Ensure this line is present
+
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Ensure correct import for Next.js 13+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,6 +12,24 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
 }) => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const categories = ['Running vests', 'Merchandise', 'FitBit', 'Equipment'];
+  const router = useRouter(); // Initialize useRouter hook
+
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(category);
+
+    // Define routes based on categories
+    const routeMap: Record<string, string> = {
+      'Running vests': '/running-vests',
+      Merchandise: 'shop',
+      FitBit: '/fitbit',
+      Equipment: '/equipment',
+    };
+
+    // Navigate to the corresponding route
+    if (routeMap[category]) {
+      router.push(routeMap[category]);
+    }
+  };
 
   return (
     <aside
@@ -31,7 +51,7 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
         {categories.map((category) => (
           <li
             key={category}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => handleCategoryClick(category)}
             className={`text-white px-4 py-2 mb-2 cursor-pointer text-center font-bold ${
               activeCategory === category
                 ? 'bg-green-600 font-bold'

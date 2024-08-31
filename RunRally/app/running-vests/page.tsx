@@ -3,7 +3,7 @@ import Dropdown from '../../components/dropdown';
 import Sidebar from '../../components/sidebar';
 import ProductList from '../../components/productlist';
 
-const ShopPage = () => {
+const RunningVestsPage = () => {
   return (
     <div className="flex p-4 space-x-4">
       {' '}
@@ -15,4 +15,4 @@ const ShopPage = () => {
   );
 };
 
-export default ShopPage;
+export default RunningVestsPage;

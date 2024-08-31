@@ -1,4 +1,4 @@
-export default function ShopLayout({
+export default function EquipmentLayout({
   children,
 }: {
   children: React.ReactNode;
