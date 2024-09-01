@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image'; // Assuming you're using Next.js
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -42,6 +42,14 @@ export default function Home() {
                 <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring group-hover:translate-x-0 group-hover:translate-y-0"></span>
                 <span className="absolute inset-0 w-full h-full border-1 border-white rounded-lg"></span>
                 <span className="relative">Login</span>
+              </a>
+              <a
+                href="/shop"
+                className="relative w-40 px-8 py-4 text-lg font-bold text-white group"
+              >
+                <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                <span className="absolute inset-0 w-full h-full border-1 border-white rounded-lg"></span>
+                <span className="relative">Shop</span>
               </a>
             </div>
           </div>
