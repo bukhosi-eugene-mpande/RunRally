@@ -44,8 +44,7 @@ const mockProducts: Product[] = [
     price: 129.99,
     images: [
       '/product/bottle/bottle1.avif',
-      '/product/bottle/bottle2.jpg',
-      '/product/bottle/bottle3.jpg',
+
     ],
     rating: 4,
   },
@@ -57,7 +56,7 @@ const mockProducts: Product[] = [
     detail:
       'Adjustable cap with UPF 50+ sun protection. Features a moisture-wicking sweatband and reflective elements for visibility.',
     price: 249.99,
-    images: ['/product/cap/cap1.jpg', '/product/cap/cap2.jpg'],
+    images: ['/product/cap/cap1.png', '/product/cap/cap2.png'],
     rating: 4,
   },
   {
@@ -68,7 +67,7 @@ const mockProducts: Product[] = [
     detail:
       'Bluetooth 5.0, 8-hour battery life, and secure-fit ear hooks. Ideal for music and podcasts while running.',
     price: 799.99,
-    images: ['/images/earphones/earphones.png'],
+    images: ['/product/earphones/earphones.png'],
     rating: 4,
   },
   {
@@ -80,8 +79,6 @@ const mockProducts: Product[] = [
       'Tracks steps, distance, pace, and heart rate. Features GPS, sleep monitoring, and smartphone notifications.',
     price: 1499.99,
     images: [
-      '/product/fitbit/fitbit1.jpg',
-      '/product/fitbit/fitbit2.avif',
       '/product/fitbit/fitbit3.avif',
       '/product/fitbit/fitbit4.webp',
     ],

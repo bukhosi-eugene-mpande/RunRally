@@ -51,7 +51,7 @@ const ProductList: React.FC<ProductListProps> = ({
               width={120}
               height={120}
             />
-            <div className="ml-4 flex-1 flex flex-col items-center justify-center">
+            <div className="ml-4 flex-1 flex flex-col items-center justify-center text-black">
               <h2 className="font-semibold text-2xl">{product.name}</h2>
               <p className="text-xl font-semibold">R {product.price}</p>
             </div>
