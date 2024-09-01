@@ -7,125 +7,124 @@ import Breadcrumbs from '@/components/breadcrumbs';
 import ProductCarousel from '@/components/product/ProductCarousel';
 import { Product } from '@/types';
 
-const ProductPage = () => {
-  const mockProducts: Product[] = [
-    {
-      id: '1',
-      name: 'RunComfort Armholder',
-      type: 'armholder',
-      description: 'Secure smartphone armholder for runners',
-      detail:
-        'Adjustable, sweat-resistant armband to hold your smartphone while running. Compatible with most smartphone sizes.',
-      price: 199.99,
-      images: ['/product/armholder/armholder.png'],
-      rating: 4,
-    },
-    {
-      id: '2',
-      name: 'BreathEasy Running Shirt',
-      type: 'shirt',
-      description: 'Lightweight, breathable running shirt',
-      detail:
-        'Made with moisture-wicking fabric to keep you cool and dry during your run. Available in multiple colors and sizes.',
-      price: 299.99,
-      images: [
-        '/product/shirt/shirt1.png',
-        '/product/shirt/shirt2.png',
-        '/product/shirt/shirt3.png',
-      ],
-      rating: 4,
-    },
-    {
-      id: '3',
-      name: 'HydroFlow Water Bottle',
-      type: 'bottle',
-      description: 'Leak-proof, easy-squeeze water bottle',
-      detail:
-        'BPA-free, 20 oz capacity with a convenient flip-top lid. Perfect for staying hydrated on long runs.',
-      price: 129.99,
-      images: [
-        '/product/bottle/bottle1.avif',
-        '/product/bottle/bottle2.jpg',
-        '/product/bottle/bottle3.jpg',
-      ],
-      rating: 4,
-    },
-    {
-      id: '4',
-      name: 'SunShield Running Cap',
-      type: 'cap',
-      description: 'Lightweight, UV-protective running cap',
-      detail:
-        'Adjustable cap with UPF 50+ sun protection. Features a moisture-wicking sweatband and reflective elements for visibility.',
-      price: 249.99,
-      images: ['/product/cap/cap1.jpg', '/product/cap/cap2.jpg'],
-      rating: 4,
-    },
-    {
-      id: '5',
-      name: 'SoundPace Wireless Earphones',
-      type: 'earphones',
-      description: 'Sweat-resistant wireless earphones for runners',
-      detail:
-        'Bluetooth 5.0, 8-hour battery life, and secure-fit ear hooks. Ideal for music and podcasts while running.',
-      price: 799.99,
-      images: ['/images/earphones/earphones.png'],
-      rating: 4,
-    },
-    {
-      id: '6',
-      name: 'PaceTrack Fitbit',
-      type: 'fitbit',
-      description: 'Advanced fitness tracker for runners',
-      detail:
-        'Tracks steps, distance, pace, and heart rate. Features GPS, sleep monitoring, and smartphone notifications.',
-      price: 1499.99,
-      images: [
-        '/product/fitbit/fitbit1.jpg',
-        '/product/fitbit/fitbit2.avif',
-        '/product/fitbit/fitbit3.avif',
-        '/product/fitbit/fitbit4.webp',
-      ],
-      rating: 4,
-    },
-    {
-      id: '7',
-      name: 'ThermoRegulate Running Vest',
-      type: 'vest',
-      description: 'Lightweight, insulated running vest',
-      detail:
-        'Perfect for chilly morning runs. Windproof front panel, breathable back, and multiple pockets for storage.',
-      price: 599.99,
-      images: [
-        '/product/vest/runningvest1.png',
-        '/product/vest/runningvest2.png',
-        '/product/vest/runningvest3.png',
-      ],
-      rating: 4,
-    },
-    {
-      id: '8',
-      name: 'SafetyFirst Work Vest',
-      type: 'workvest',
-      description: 'High-visibility work vest for runners',
-      detail:
-        'Reflective strips for enhanced visibility during low-light conditions. Lightweight and breathable design.',
-      price: 349.99,
-      images: [
-        '/product/workvest/workvest1.jpg',
-        '/product/workvest/workvest2.jpg',
-        '/product/workvest/workvest3.jpg',
-      ],
-      rating: 4,
-    },
-  ];
+const mockProducts: Product[] = [
+  {
+    id: '1',
+    name: 'RunComfort Armholder',
+    type: 'armholder',
+    description: 'Secure smartphone armholder for runners',
+    detail:
+      'Adjustable, sweat-resistant armband to hold your smartphone while running. Compatible with most smartphone sizes.',
+    price: 199.99,
+    images: ['/product/armholder/armholder.png'],
+    rating: 4,
+  },
+  {
+    id: '2',
+    name: 'BreathEasy Running Shirt',
+    type: 'shirt',
+    description: 'Lightweight, breathable running shirt',
+    detail:
+      'Made with moisture-wicking fabric to keep you cool and dry during your run. Available in multiple colors and sizes.',
+    price: 299.99,
+    images: [
+      '/product/shirt/shirt1.png',
+      '/product/shirt/shirt2.png',
+      '/product/shirt/shirt3.png',
+    ],
+    rating: 4,
+  },
+  {
+    id: '3',
+    name: 'HydroFlow Water Bottle',
+    type: 'bottle',
+    description: 'Leak-proof, easy-squeeze water bottle',
+    detail:
+      'BPA-free, 20 oz capacity with a convenient flip-top lid. Perfect for staying hydrated on long runs.',
+    price: 129.99,
+    images: [
+      '/product/bottle/bottle1.avif',
+      '/product/bottle/bottle2.jpg',
+      '/product/bottle/bottle3.jpg',
+    ],
+    rating: 4,
+  },
+  {
+    id: '4',
+    name: 'SunShield Running Cap',
+    type: 'cap',
+    description: 'Lightweight, UV-protective running cap',
+    detail:
+      'Adjustable cap with UPF 50+ sun protection. Features a moisture-wicking sweatband and reflective elements for visibility.',
+    price: 249.99,
+    images: ['/product/cap/cap1.jpg', '/product/cap/cap2.jpg'],
+    rating: 4,
+  },
+  {
+    id: '5',
+    name: 'SoundPace Wireless Earphones',
+    type: 'earphones',
+    description: 'Sweat-resistant wireless earphones for runners',
+    detail:
+      'Bluetooth 5.0, 8-hour battery life, and secure-fit ear hooks. Ideal for music and podcasts while running.',
+    price: 799.99,
+    images: ['/images/earphones/earphones.png'],
+    rating: 4,
+  },
+  {
+    id: '6',
+    name: 'PaceTrack Fitbit',
+    type: 'fitbit',
+    description: 'Advanced fitness tracker for runners',
+    detail:
+      'Tracks steps, distance, pace, and heart rate. Features GPS, sleep monitoring, and smartphone notifications.',
+    price: 1499.99,
+    images: [
+      '/product/fitbit/fitbit1.jpg',
+      '/product/fitbit/fitbit2.avif',
+      '/product/fitbit/fitbit3.avif',
+      '/product/fitbit/fitbit4.webp',
+    ],
+    rating: 4,
+  },
+  {
+    id: '7',
+    name: 'ThermoRegulate Running Vest',
+    type: 'vest',
+    description: 'Lightweight, insulated running vest',
+    detail:
+      'Perfect for chilly morning runs. Windproof front panel, breathable back, and multiple pockets for storage.',
+    price: 599.99,
+    images: [
+      '/product/vest/runningvest1.png',
+      '/product/vest/runningvest2.png',
+      '/product/vest/runningvest3.png',
+    ],
+    rating: 4,
+  },
+  {
+    id: '8',
+    name: 'SafetyFirst Work Vest',
+    type: 'workvest',
+    description: 'High-visibility work vest for runners',
+    detail:
+      'Reflective strips for enhanced visibility during low-light conditions. Lightweight and breathable design.',
+    price: 349.99,
+    images: [
+      '/product/workvest/workvest1.jpg',
+      '/product/workvest/workvest2.jpg',
+      '/product/workvest/workvest3.jpg',
+    ],
+    rating: 4,
+  },
+];
 
-  const defaultProduct = mockProducts.find((p) => p.type === 'shirt')!; // Use non-null assertion
+const defaultProduct = mockProducts.find((p) => p.type === 'shirt')!;
 
+const ProductDetails: React.FC = () => {
   const searchParams = useSearchParams();
   const productType = searchParams.get('type');
-  const [selectedProduct, setSelectedProduct] =
-    useState<Product>(defaultProduct);
+  const [selectedProduct, setSelectedProduct] = useState<Product>(defaultProduct);
 
   useEffect(() => {
     if (productType) {
@@ -137,14 +136,13 @@ const ProductPage = () => {
   }, [productType]);
 
   return (
+    <div>
     <section className="py-2 lg:py-4 relative">
       <div className="mx-auto max-w-[90%] px-4 sm:px-4 lg:px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="pro-detail w-full flex flex-col justify-center order-last lg:order-none max-lg:max-w-[608px] max-lg:mx-auto">
             <div>
-              <Suspense>
                 <Breadcrumbs />
-              </Suspense>
             </div>
             <h2 className="mb-2 font-manrope font-bold text-3xl leading-10 text-gray-900">
               {selectedProduct.name}
@@ -327,7 +325,17 @@ const ProductPage = () => {
         />
       </div>
     </section>
+    </div>
   );
 };
 
-export default ProductPage;
+
+const Page: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductDetails />
+    </Suspense>
+  );
+};
+
+export default Page;
