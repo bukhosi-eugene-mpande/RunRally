@@ -2,6 +2,7 @@
 import Dropdown from '../../components/dropdown';
 import Sidebar from '../../components/sidebar';
 import ProductList from '../../components/productlist';
+import { Navbar } from '@/components/navbar';
 
 const EquipmentPage = () => {
   const products = [
@@ -19,12 +20,20 @@ const EquipmentPage = () => {
     },
   ];
   return (
-    <div className="flex p-4 space-x-4">
-      {' '}
-      {/* Flexbox layout and spacing between children */}
-      <Sidebar className="w-1/4" /> {/* Sidebar takes up 1/4 of the width */}
-      <ProductList products={products} className="w-3/4" />
-      {/* ProductList takes up 3/4 of the width */}
+    <div>
+      {/* Container for the fixed Navbar */}
+      <div className="fixed top-0 left-0 right-0 z-30">
+        <Navbar />
+      </div>
+
+      {/* Main content area with additional margin to account for the fixed Navbar height */}
+      <div className="flex p-4 space-x-4 mt-28">
+        {' '}
+        {/* Adjust the top margin here */}
+        <Sidebar className="w-1/4" /> {/* Sidebar adjusted for layout */}
+        <ProductList products={products} className="w-3/4" />{' '}
+        {/* ProductList adjusted for layout */}
+      </div>
     </div>
   );
 };
