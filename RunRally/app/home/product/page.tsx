@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation';
 import ProductTabs from '@/components/product/ProductTabs';
 import Breadcrumbs from '@/components/breadcrumbs';
@@ -141,7 +142,9 @@ const ProductPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="pro-detail w-full flex flex-col justify-center order-last lg:order-none max-lg:max-w-[608px] max-lg:mx-auto">
             <div>
-              <Breadcrumbs />
+              <Suspense>
+                <Breadcrumbs />
+              </Suspense>
             </div>
             <h2 className="mb-2 font-manrope font-bold text-3xl leading-10 text-gray-900">
               {selectedProduct.name}

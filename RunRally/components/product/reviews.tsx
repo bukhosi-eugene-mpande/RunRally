@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { RatingTotal } from '@/types';
 import { ReviewComponent } from '@/components/product/review';
