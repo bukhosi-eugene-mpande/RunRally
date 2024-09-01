@@ -50,7 +50,7 @@ const ShopPage = () => {
       <div className="fixed top-0 left-0 right-0 z-50">
         <Navbar />
       </div>
-      <div className="flex p-4 space-x-4 mt-24">
+      <div className="flex p-4 space-x-4 mt-28">
         <Sidebar className="w-1/4" />
         <ProductList products={products} className="w-3/4" />
       </div>
