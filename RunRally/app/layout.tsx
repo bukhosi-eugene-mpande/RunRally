@@ -19,10 +19,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  themeColor: [{ media: '(prefers-color-scheme: light)', color: 'white' }],
 };
 
 export default function RootLayout({
@@ -35,12 +32,18 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          'min-h-screen bg-background font-sans antialiased',
+          'min-h-screen bg-white font-sans antialiased',
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: 'class', defaultTheme: 'light' }}>
-          <div className='font-sans'>
+        <Providers
+          themeProps={{
+            attribute: 'class',
+            defaultTheme: 'light',
+            disableTransitionOnChange: true,
+          }}
+        >
+          <div className="font-sans bg-white">
             <main>{children}</main>
           </div>
         </Providers>
