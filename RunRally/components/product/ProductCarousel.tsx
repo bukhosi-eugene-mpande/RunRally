@@ -31,7 +31,8 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
       });
 
       // Add click event listeners to thumbnail images
-      const thumbSlides = thumbSwiperRef.current.querySelectorAll('.swiper-slide');
+      const thumbSlides =
+        thumbSwiperRef.current.querySelectorAll('.swiper-slide');
       thumbSlides.forEach((slide, index) => {
         slide.addEventListener('click', () => {
           mainSwiper.slideToLoop(index);
@@ -46,16 +47,27 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         <div className="swiper-wrapper">
           {images.map((image, index) => (
             <div key={index} className="swiper-slide">
-              <img src={image} alt={`Product image ${index + 1}`} className="mx-auto" />
+              <img
+                src={image}
+                alt={`Product image ${index + 1}`}
+                className="mx-auto"
+              />
             </div>
           ))}
         </div>
       </div>
-      <div ref={thumbSwiperRef} className="swiper product-thumb max-w-[608px] mx-auto">
+      <div
+        ref={thumbSwiperRef}
+        className="swiper product-thumb max-w-[608px] mx-auto"
+      >
         <div className="swiper-wrapper">
           {images.map((image, index) => (
             <div key={index} className="swiper-slide">
-              <img src={image} alt={`Thumbnail image ${index + 1}`} className="cursor-pointer border-2 border-gray-50 transition-all duration-500 hover:border-green-600 slide:border-green-600" />
+              <img
+                src={image}
+                alt={`Thumbnail image ${index + 1}`}
+                className="cursor-pointer border-2 border-gray-50 transition-all duration-500 hover:border-green-600 slide:border-green-600"
+              />
             </div>
           ))}
         </div>

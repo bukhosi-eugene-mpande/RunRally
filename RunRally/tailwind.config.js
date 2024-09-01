@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customGreen: 'rgba(121, 185, 138, 1)'
+        customGreen: 'rgba(121, 185, 138, 1)',
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],

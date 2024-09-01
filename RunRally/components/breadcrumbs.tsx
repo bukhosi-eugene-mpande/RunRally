@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 const Breadcrumbs: React.FC = () => {
   const pathname = usePathname();
-  
+
   const pathnames = pathname.split('/').filter((x) => x);
 
   return (
@@ -24,8 +24,11 @@ const Breadcrumbs: React.FC = () => {
           </li>
         ) : (
           <li key={to} className="inline-flex items-center">
-            <Link href={to} className="flex items-center text-2xl text-gray-600 hover:text-gray-700 focus:outline-none focus:text-gray-600">
-                {value.charAt(0).toUpperCase() + value.slice(1)}
+            <Link
+              href={to}
+              className="flex items-center text-2xl text-gray-600 hover:text-gray-700 focus:outline-none focus:text-gray-600"
+            >
+              {value.charAt(0).toUpperCase() + value.slice(1)}
             </Link>
             <svg
               className="shrink-0 mx-2 size-4 text-gray-400"
