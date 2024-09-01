@@ -157,7 +157,7 @@ export default function Login() {
                         type="email"
                         name="email"
                         id="email"
-                        placeholder="John.Doe@example.com"
+                        placeholder="example@example.com"
                         className="block w-full px-3 sm:px-4 py-2 mt-2 text-white placeholder-white bg-gray-500 bg-opacity-40 border border-gray-600 rounded-lg focus:border-green-400 focus:ring-green-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         value={email}
                         onChange={handleEmailChange}
@@ -207,7 +207,7 @@ export default function Login() {
                     </div>
                     <div className="mt-4 sm:mt-6">
                       <button
-                        className="w-full text-sm sm:text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
+                        className="w-full text-sm sm:text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
                         onClick={handleLoginClick}
                       >
                         Login
@@ -231,7 +231,7 @@ export default function Login() {
 
                   <button
                     type="button"
-                    className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                    className="hover:border-green-400 hover:border-2 hover:ring-green-400 hover:outline-none hover:ring hover:ring-opacity-40 font-extrabold py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     onClick={() => handleAuthClick('Google')}
                   >
                     <svg
@@ -275,7 +275,7 @@ export default function Login() {
                   </button>
                   <button
                     type="button"
-                    className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
+                    className="hover:border-green-400 hover:border-2 hover:ring-green-400 hover:outline-none hover:ring hover:ring-opacity-40 font-extrabold py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
                     onClick={() => handleAuthClick('Apple')}
                   >
                     <svg
@@ -298,7 +298,7 @@ export default function Login() {
                   </button>
                   <button
                     type="button"
-                    className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
+                    className="hover:border-green-400 hover:border-2 hover:ring-green-400 hover:outline-none hover:ring hover:ring-opacity-40 font-extrabold py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
                     onClick={() => handleAuthClick('Facebook')}
                   >
                     <svg

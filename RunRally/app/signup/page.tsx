@@ -129,15 +129,15 @@ export default function SignIn() {
                     </h1>
                   </div>
                 </div>
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-                  <p className="text-4xl mt-4">
+                <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+                  <p className="text-base sm:text-xl lg:text-4xl mt-2 lg:mt-4  text-white">
                     Run together, thrive together.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center w-full max-w-md px-3 mx-auto lg:w-2/6">
+            <div className="flex items-center w-full max-w-xl px-3 mx-auto lg:w-2/6">
               <div className="flex-1 rounded-2xl bg-gray-500 bg-opacity-40 p-7 m-auto">
                 <div className="text-center">
                   <div>
@@ -284,7 +284,7 @@ export default function SignIn() {
 
                     <div className="mt-6">
                       <button
-                        className="w-full text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
+                        className="w-full text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
                         onClick={handleSignUpClick}
                       >
                         Sign Up
@@ -298,7 +298,7 @@ export default function SignIn() {
                       href="/login"
                       className="focus:outline-none text-black focus:underline hover:underline"
                     >
-                      Login.
+                      Login
                     </a>
                   </p>
 
@@ -308,7 +308,7 @@ export default function SignIn() {
 
                   <button
                     type="button"
-                    className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-extrabold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                    className="hover:border-green-400 hover:ring-green-400 hover:outline-none hover:ring hover:ring-opacity-40 hover:border-2 py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-extrabold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     onClick={() => handleAuthClick('Google')}
                   >
                     <svg
@@ -352,7 +352,7 @@ export default function SignIn() {
                   </button>
                   <button
                     type="button"
-                    className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-extrabold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                    className="hover:border-green-400 hover:ring-green-400 hover:border-2 hover:outline-none hover:ring hover:ring-opacity-40 py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-extrabold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     onClick={() => handleAuthClick('Apple')}
                   >
                     <svg
@@ -367,7 +367,7 @@ export default function SignIn() {
                   </button>
                   <button
                     type="button"
-                    className="py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-extrabold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                    className="hover:border-green-400 hover:border-2 hover:ring-green-400 hover:outline-none hover:ring hover:ring-opacity-40 py-2 m-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-md font-extrabold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     onClick={() => handleAuthClick('Facebook')}
                   >
                     <svg
