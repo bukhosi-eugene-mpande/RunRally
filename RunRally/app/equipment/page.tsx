@@ -6,17 +6,29 @@ import { Navbar } from '@/components/navbar';
 
 const EquipmentPage = () => {
   const products = [
-    { name: 'Running Arm Holster', price: 150, image: '/Arm_pocket.png' },
-    { name: 'Letscom In-Ear Earphones', price: 449, image: '/Earphones.png' },
+    {
+      name: 'Running Arm Holster',
+      price: 150,
+      image: '/Arm_pocket.png',
+      type: 'armholder',
+    },
+    {
+      name: 'Letscom In-Ear Earphones',
+      price: 449,
+      image: '/Earphones.png',
+      type: 'earphones',
+    },
     {
       name: 'Heart Rate Monitor',
       price: 549,
       image: '/exercise_monitor.png',
+      type: 'fitbit',
     },
     {
       name: 'Stainless Steel Water Bottle 500ml',
       price: 200,
       image: '/waterBottle.png',
+      type: 'bottle',
     },
   ];
   return (

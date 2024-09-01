@@ -5,12 +5,42 @@ import ProductList from '../../components/productlist';
 import { Navbar } from '@/components/navbar';
 const FitBitPage = () => {
   const products = [
-    { name: 'Apple Watch', price: 349, image: '/apple_watch.png' },
-    { name: 'Garmin Movement Watch', price: 349, image: '/garmin.png' },
-    { name: 'Polar Activity Watch', price: 200, image: '/polar.png' },
-    { name: 'Fitbit Activity Tracker', price: 200, image: '/Fitbit.png' },
-    { name: 'Fitbit Exercise Tracker', price: 150, image: '/fitbit_2.png' },
-    { name: 'Xiaomi Fit Watch', price: 150, image: '/fitwatch.png' },
+    {
+      name: 'Apple Watch',
+      price: 349,
+      image: '/apple_watch.png',
+      type: 'fitbit',
+    },
+    {
+      name: 'Garmin Movement Watch',
+      price: 349,
+      image: '/garmin.png',
+      type: 'fitbit',
+    },
+    {
+      name: 'Polar Activity Watch',
+      price: 200,
+      image: '/polar.png',
+      type: 'fitbit',
+    },
+    {
+      name: 'Fitbit Activity Tracker',
+      price: 200,
+      image: '/Fitbit.png',
+      type: 'fitbit',
+    },
+    {
+      name: 'Fitbit Exercise Tracker',
+      price: 150,
+      image: '/fitbit_2.png',
+      type: 'fitbit',
+    },
+    {
+      name: 'Xiaomi Fit Watch',
+      price: 150,
+      image: '/fitwatch.png',
+      type: 'fitbit',
+    },
   ];
   return (
     <div>

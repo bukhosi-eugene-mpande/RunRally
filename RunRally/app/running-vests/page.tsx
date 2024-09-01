@@ -9,21 +9,25 @@ const RunningVestPage = () => {
       name: 'RunRally Running Vest Black',
       price: 349,
       image: '/running_black.png',
+      type: 'vest',
     },
     {
       name: 'RunRally Running Vest Brown',
       price: 449,
       image: '/running_brown.png',
+      type: 'vest',
     },
     {
       name: 'RunRally Running Vest Pink',
       price: 449,
       image: '/running_pink.png',
+      type: 'vest',
     },
     {
       name: 'RunRally Running Vest Yellow',
       price: 449,
       image: '/running_yellow.png',
+      type: 'workvest',
     },
   ];
   return (
