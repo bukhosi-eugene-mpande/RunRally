@@ -22,8 +22,8 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
 
   // Map URL paths to categories
   const routeMap: Record<string, string> = {
-    '/running-vests': 'Running vests',
     '/shop': 'Merchandise',
+    '/running-vests': 'Running vests',
     '/fitbit': 'Fitness devices',
     '/equipment': 'Equipment',
   };
