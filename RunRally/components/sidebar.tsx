@@ -12,8 +12,8 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
 }) => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const categories = [
-    'Running vests',
     'Merchandise',
+    'Running vests',
     'Fitness devices',
     'Equipment',
   ];
