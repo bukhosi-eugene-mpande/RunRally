@@ -39,12 +39,15 @@ const ProductList: React.FC<ProductListProps> = ({
   return (
     <div className={`flex flex-col space-y-4 ${className}`} {...props}>
       {products.map((product) => (
-        <Link
+        <div
           key={product.name}
-          href={`/home/product?type=${encodeURIComponent(product.type)}`} // Navigate with query parameter
-          passHref
+          className="flex items-center bg-white p-6 shadow rounded w-full transform transition duration-300 ease-in-out hover:shadow-lg hover:scale-105"
         >
-          <div className="flex items-center bg-white p-6 shadow rounded w-full transform transition duration-300 ease-in-out hover:shadow-lg hover:scale-105 cursor-pointer">
+          <Link
+            href={`/home/product?type=${encodeURIComponent(product.type)}`} // Navigate with query parameter
+            passHref
+            className="flex items-center flex-1 cursor-pointer"
+          >
             <Image
               src={product.image}
               alt={product.name}
@@ -55,32 +58,32 @@ const ProductList: React.FC<ProductListProps> = ({
               <h2 className="font-semibold text-2xl">{product.name}</h2>
               <p className="text-xl font-semibold">R {product.price}</p>
             </div>
-            <div className="flex flex-col space-y-3">
-              <button
-                className="text-gray-600 hover:text-green-500 hover:scale-110 cursor-pointer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <FontAwesomeIcon icon={faCartPlus} size="lg" />
-              </button>
-              <button
-                className={`text-gray-600 hover:text-red-600 hover:scale-110 cursor-pointer ${
-                  activeHearts[product.name] ? 'text-red-600' : ''
-                }`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleHeartClick(product.name);
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={
-                    activeHearts[product.name] ? faSolidHeart : faRegularHeart
-                  }
-                  size="lg"
-                />
-              </button>
-            </div>
+          </Link>
+          <div className="flex flex-col space-y-3">
+            <button
+              className="text-gray-600 hover:text-green-500 hover:scale-110 cursor-pointer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <FontAwesomeIcon icon={faCartPlus} size="lg" />
+            </button>
+            <button
+              className={`text-gray-600 hover:text-red-600 hover:scale-110 cursor-pointer ${
+                activeHearts[product.name] ? 'text-red-600' : ''
+              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleHeartClick(product.name);
+              }}
+            >
+              <FontAwesomeIcon
+                icon={
+                  activeHearts[product.name] ? faSolidHeart : faRegularHeart
+                }
+                size="lg"
+              />
+            </button>
           </div>
-        </Link>
+        </div>
       ))}
     </div>
   );
