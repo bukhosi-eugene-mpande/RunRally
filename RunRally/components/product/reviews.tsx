@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import { RatingTotal } from '@/types';
 import { ReviewComponent } from '@/components/product/review';
@@ -44,13 +44,11 @@ export default function ReviewTab() {
     rating,
     title: faker.lorem.sentence(),
     author: faker.person.fullName(),
-    date: faker.date
-      .past()
-      .toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-      }),
+    date: faker.date.past().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }),
     content: reviewContent[rating as keyof typeof reviewContent],
     authorImage: faker.image.url(),
   });
