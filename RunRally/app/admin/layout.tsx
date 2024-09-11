@@ -15,7 +15,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
-export default function BlogLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -65,38 +65,29 @@ export default function BlogLayout({
           <SheetContent side="left">
             <nav className="grid gap-6 text-lg font-medium">
               <Link
-                href="#"
+                href="/"
                 className="flex items-center gap-2 text-lg font-semibold"
               >
                 <Package2 className="h-6 w-6" />
                 <span className="sr-only">Acme Inc</span>
               </Link>
               <Link
-                href="#"
+                href="/admin"
                 className="text-muted-foreground hover:text-foreground"
               >
                 Dashboard
               </Link>
               <Link
-                href="#"
+                href="/admin/orders"
                 className="text-muted-foreground hover:text-foreground"
               >
                 Orders
               </Link>
               <Link
-                href="#"
+                href="/admin/products"
                 className="text-muted-foreground hover:text-foreground"
               >
                 Products
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Customers
-              </Link>
-              <Link href="#" className="hover:text-foreground">
-                Settings
               </Link>
             </nav>
           </SheetContent>

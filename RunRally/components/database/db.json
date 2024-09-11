@@ -120,5 +120,64 @@
       },
       "phone": "333-444-5555"
     }
+  ],
+  "products": [
+    {
+      "id": "prod1",
+      "images": [
+        "/product/shirt/shirt1.png",
+        "/product/shirt/shirt2.png",
+        "/product/shirt/shirt3.png"
+      ],
+      "name": "T Shirt",
+      "status": "active",
+      "sold": 25,
+      "price": 500,
+      "created": "2021-09-01"
+    },
+    {
+      "id": "prod2",
+      "images": [
+        "/product/vest/runningvest1.png",
+        "/product/vest/runningvest2.png",
+        "/product/vest/runningvest3.png"
+      ],
+      "name": "Running Vest",
+      "status": "active",
+      "sold": 20,
+      "price": 150,
+      "created": "2021-09-01"
+    },
+    {
+      "id": "prod3",
+      "images": [
+        "/product/bottle/bottle1.avif",
+        "/product/bottle/bottle2.jpg",
+        "/product/bottle/bottle3.jpg"
+      ],
+      "name": "Bottle",
+      "status": "active",
+      "sold": 45,
+      "price": 200,
+      "created": "2021-09-01"
+    },
+    {
+      "id": "prod4",
+      "images": ["/product/cap/cap1.png", "/product/cap/cap2.png"],
+      "name": "Cap",
+      "status": "active",
+      "sold": 15,
+      "price": 100,
+      "created": "2021-09-01"
+    },
+    {
+      "id": "prod5",
+      "images": ["/product/armholder/armholder.png"],
+      "name": "Armholder",
+      "status": "active",
+      "sold": 35,
+      "price": 250,
+      "created": "2021-09-01"
+    }
   ]
 }

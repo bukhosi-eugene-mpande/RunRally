@@ -77,7 +77,7 @@ export default function ProductPictures() {
   faker.seed(123);
   return (
     <div className="p-4 h-full gap-8 justify-center bg-gray-50 flex border border-dashed border-gray-200 rounded-xl">
-      <Card className="overflow-hidden" x-chunk="dashboard-07-chunk-4">
+      <Card className="overflow-hidden " x-chunk="dashboard-07-chunk-4">
         <CardHeader>
           <CardTitle>Product Images</CardTitle>
           <CardDescription>
@@ -90,7 +90,7 @@ export default function ProductPictures() {
               alt="Product image"
               className="aspect-square w-full rounded-md object-cover"
               height="300"
-              src={faker.image.url()}
+              src="/product/shirt/shirt1.png"
               width="300"
             />
             <div className="grid grid-cols-3 gap-2">
@@ -98,14 +98,14 @@ export default function ProductPictures() {
                 alt="Product image"
                 className="aspect-square w-full rounded-md object-cover"
                 height="84"
-                src={faker.image.url()}
+                src="/product/shirt/shirt2.png"
                 width="84"
               />
               <Image
                 alt="Product image"
                 className="aspect-square w-full rounded-md object-cover"
                 height="84"
-                src={faker.image.url()}
+                src="/product/shirt/shirt3.png"
                 width="84"
               />
               <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">

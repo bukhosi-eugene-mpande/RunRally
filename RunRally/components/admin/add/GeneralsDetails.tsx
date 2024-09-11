@@ -74,7 +74,7 @@ export const description =
 export default function GeneralDetails() {
   return (
     <div className="p-4 h-full gap-8 justify-center bg-gray-50 flex border border-dashed border-gray-200 rounded-xl">
-      <Card>
+      <Card x-chunk="dashboard-07-chunk-1" className="w-full max-w-5xl">
         <CardHeader>
           <CardTitle>Product Details</CardTitle>
           <CardDescription>
@@ -82,7 +82,7 @@ export default function GeneralDetails() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-6">
+          <div className="grid gap-6 ">
             <div className="grid gap-3">
               <Label htmlFor="name">Name</Label>
               <Input
@@ -100,15 +100,6 @@ export default function GeneralDetails() {
                 className="min-h-32"
               />
             </div>
-          </div>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Product Category</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-6 sm:grid-cols-3">
             <div className="grid gap-3">
               <Label htmlFor="category">Category</Label>
               <Select>
@@ -135,15 +126,6 @@ export default function GeneralDetails() {
                 </SelectContent>
               </Select>
             </div>
-          </div>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Product Status</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-6">
             <div className="grid gap-3">
               <Label htmlFor="status">Status</Label>
               <Select>
