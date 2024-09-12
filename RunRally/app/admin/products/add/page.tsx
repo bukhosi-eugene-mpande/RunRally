@@ -1,65 +1,45 @@
 'use client';
-import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link';
-import { ChevronLeft, PlusCircle, Upload } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import data from '@/components/database/db.json';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Textarea } from '@/components/ui/textarea';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import React, { useState } from 'react';
 import GeneralDetails from '@/components/admin/add/GeneralsDetails';
 import StockDetails from '@/components/admin/add/StockDetails';
 import ProductPictures from '@/components/admin/add/ProductPIctures';
+import FinalProduct from '@/components/admin/add/FinalProduct';
 
 const steps = [
-  { component: GeneralDetails, index: 1 },
-  { component: StockDetails, index: 2 },
-  { component: ProductPictures, index: 3 },
+  { component: GeneralDetails, index: 1, label: 'General Details' },
+  { component: StockDetails, index: 2, label: 'Stock Details' },
+  { component: ProductPictures, index: 3, label: 'Product Pictures' },
 ];
 
 export default function Add() {
   const [currentStep, setCurrentStep] = useState(1);
 
   const handleNext = () => {
-    setCurrentStep((prevStep) => Math.min(prevStep + 1, 4)); // Assuming 4 steps including the final step
+    setCurrentStep((prevStep) => Math.min(prevStep + 1, 4));
   };
 
   const handleBack = () => {
     setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
   };
 
-  const products = data.products;
-  const product = products[0];
+  const router = useRouter();
+
+  const handleFinishingClick = (load: string, success: string) => {
+    toast.loading(load);
+    setTimeout(() => {
+      toast.dismiss();
+      toast.success(success);
+      router.push('/admin/products');
+    }, 2000);
+  };
 
   return (
     <div className="p-2">
+      <Toaster />
       <div className="flex items-center gap-4">
         <h1 className="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
           Add Product
@@ -76,22 +56,30 @@ export default function Add() {
         </div>
       </div>
       <div data-hs-stepper="" className="p-6">
-        <div className="w-full justify-center">
-          <ul className="relative flex justify-center flex-row gap-x-2">
-            {[1, 2, 3].map((step) => (
+        <div className="w-full flex justify-center">
+          <ul className="relative flex items-center flex-row gap-x-2 max-w-3xl">
+            {steps.map(({ index, label }) => (
               <li
-                key={step}
-                className={`flex items-center gap-x-2 shrink basis-0 flex-1 group ${currentStep >= step ? 'hs-stepper-active' : ''}`}
-                data-hs-stepper-nav-item={`{"index": ${step}}`}
+                key={index}
+                className={`flex items-center gap-x-2 shrink basis-0 flex-1 group ${
+                  currentStep >= index ? 'hs-stepper-active' : ''
+                }`}
+                data-hs-stepper-nav-item={`{"index": ${index}}`}
               >
                 <span className="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                   <span
-                    className={`size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 ${currentStep >= step ? 'hs-stepper-active:bg-green-600 hs-stepper-active:text-white' : ''}`}
+                    className={`size-7 flex justify-center items-center shrink-0 font-medium rounded-full ${
+                      currentStep > index
+                        ? 'bg-green-600 text-white'
+                        : currentStep === index
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-gray-100 text-gray-800'
+                    }`}
                   >
-                    <span className={`${currentStep > step ? 'hidden' : ''}`}>
-                      {step}
+                    <span className={`${currentStep > index ? 'hidden' : ''}`}>
+                      {index}
                     </span>
-                    {currentStep > step && (
+                    {currentStep > index && (
                       <svg
                         className="shrink-0 size-3"
                         xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +97,7 @@ export default function Add() {
                     )}
                   </span>
                   <span className="ms-2 text-sm font-medium text-gray-800">
-                    Step
+                    {label}
                   </span>
                 </span>
                 <div className="w-full h-px flex-1 bg-gray-200 group-last:hidden"></div>
@@ -167,6 +155,12 @@ export default function Add() {
               type="button"
               className="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
               style={{ display: currentStep === 4 ? 'block' : 'none' }}
+              onClick={() =>
+                handleFinishingClick(
+                  'Creating product....',
+                  'Successfully created product',
+                )
+              }
             >
               Finish
             </button>
@@ -194,19 +188,8 @@ export default function Add() {
             data-hs-stepper-content-item='{"isFinal": true}'
             style={{ display: currentStep === 4 ? 'block' : 'none' }}
           >
-            <div className="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl">
-              <div className="flex items-center bg-white p-6 shadow rounded w-full transform transition duration-300 ease-in-out hover:shadow-lg hover:scale-105 cursor-pointer">
-                <Image
-                  src={product.images[0]}
-                  alt={product.name}
-                  width={120}
-                  height={120}
-                />
-                <div className="ml-4 flex-1 flex flex-col items-center justify-center text-black">
-                  <h2 className="font-semibold text-2xl">{product.name}</h2>
-                  <p className="text-xl font-semibold">R {product.price}</p>
-                </div>
-              </div>
+            <div className="p-4 h-full gap-8 justify-center bg-gray-50 flex border border-dashed border-gray-200 rounded-xl">
+              <FinalProduct />
             </div>
           </div>
         </div>

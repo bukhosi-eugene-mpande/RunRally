@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { usePathname } from 'next/navigation';
 
 export default function AdminLayout({
   children,
@@ -21,10 +22,24 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   faker.seed(123);
+  const pathname = usePathname();
+
+  const isCurrentPage = (path: string) => {
+    return pathname === path;
+  };
+
+  const getLinkClassName = (path: string) => {
+    return `text-muted-foreground transition-colors hover:text-foreground ${
+      isCurrentPage(path)
+        ? 'text-foreground text-black font-bold underline underline-offset-4 text-xl'
+        : 'text-xl'
+    }`;
+  };
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <header className="sticky top-0 w-full flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
-        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+        <nav className="hidden flex-col gap-6 text-xl font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link
             href="/"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
@@ -32,21 +47,18 @@ export default function AdminLayout({
             <Logo src="" alt="" />
             <span className="sr-only">RunRally Inc</span>
           </Link>
-          <Link
-            href="/admin"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
+          <Link href="/admin" className={getLinkClassName('/admin')}>
             Dashboard
           </Link>
           <Link
             href="/admin/orders"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className={getLinkClassName('/admin/orders')}
           >
             Orders
           </Link>
           <Link
             href="/admin/products"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className={getLinkClassName('/admin/products')}
           >
             Products
           </Link>
