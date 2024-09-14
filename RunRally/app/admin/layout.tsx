@@ -29,10 +29,10 @@ export default function AdminLayout({
   };
 
   const getLinkClassName = (path: string) => {
-    return `text-muted-foreground transition-colors hover:text-foreground ${
+    return `transition-colors hover:text-xl hover:underline hover:underline-offset-4 hover:text-green-700 ${
       isCurrentPage(path)
-        ? 'text-foreground text-black font-bold underline underline-offset-4 text-xl'
-        : 'text-xl'
+        ? 'text-foreground text-green-600 font-bold underline underline-offset-4 text-xl'
+        : 'text-xl text-gray-600'
     }`;
   };
 
@@ -42,7 +42,7 @@ export default function AdminLayout({
         <nav className="hidden flex-col gap-6 text-xl font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link
             href="/"
-            className="flex items-center gap-2 text-lg font-semibold md:text-base"
+            className="flex max-h-ft items-center gap-2 text-lg font-semibold md:text-base"
           >
             <Logo src="" alt="" />
             <span className="sr-only">RunRally Inc</span>
@@ -132,7 +132,7 @@ export default function AdminLayout({
           </DropdownMenu>
         </div>
       </header>
-      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+      <div className="flex flex-col sm:gap-4">
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           {children}
         </main>

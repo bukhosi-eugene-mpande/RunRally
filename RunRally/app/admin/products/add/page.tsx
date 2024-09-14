@@ -45,14 +45,30 @@ export default function Add() {
           Add Product
         </h1>
         <div className="hidden items-center gap-2 md:ml-auto md:flex">
-          <Link href="/admin/products">
-            <Button variant="outline" size="sm">
-              Discard
-            </Button>
-          </Link>
-          <Link href="/admin/products">
-            <Button size="sm">Save Product</Button>
-          </Link>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              handleFinishingClick(
+                'Discarding product....',
+                'Product discarded',
+              )
+            }
+          >
+            Discard
+          </Button>
+          <Button
+            size="sm"
+            className="bg-green-600 hover:bg-green-700"
+            onClick={() =>
+              handleFinishingClick(
+                'Saving product....',
+                'Successfully saved product',
+              )
+            }
+          >
+            Save Product
+          </Button>
         </div>
       </div>
       <div data-hs-stepper="" className="p-6">
@@ -72,7 +88,7 @@ export default function Add() {
                       currentStep > index
                         ? 'bg-green-600 text-white'
                         : currentStep === index
-                          ? 'bg-blue-600 text-white'
+                          ? 'bg-green-200 text-black'
                           : 'bg-gray-100 text-gray-800'
                     }`}
                   >
