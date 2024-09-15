@@ -1,6 +1,11 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import toast, { Renderable, Toast, Toaster, ValueFunction } from 'react-hot-toast';
+import toast, {
+  Renderable,
+  Toast,
+  Toaster,
+  ValueFunction,
+} from 'react-hot-toast';
 import { useState } from 'react';
 import SuccessModal from '@/components/success/successModal';
 import GeneralDetails from '@/components/admin/add/GeneralsDetails';
@@ -33,7 +38,7 @@ export default function Add() {
   const handleFinishingClick = (
     load: Renderable | ValueFunction<Renderable, Toast>,
     success: Renderable | ValueFunction<Renderable, Toast>,
-    message: string
+    message: string,
   ) => {
     toast.loading(load);
     setTimeout(() => {
@@ -52,7 +57,11 @@ export default function Add() {
   return (
     <div className="p-2">
       <Toaster />
-      <SuccessModal isOpen={isModalOpen} onClose={closeModal} message={modalMessage} />
+      <SuccessModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        message={modalMessage}
+      />
       <div className="flex items-center gap-4">
         <h1 className="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
           Add Product
@@ -65,7 +74,7 @@ export default function Add() {
               handleFinishingClick(
                 'Discarding product....',
                 'Product discarded',
-                'Product discarded successfully!'
+                'Product discarded successfully!',
               )
             }
           >
@@ -78,7 +87,7 @@ export default function Add() {
               handleFinishingClick(
                 'Saving product....',
                 'Successfully saved product',
-                'Successfully saved the product!'
+                'Successfully saved the product!',
               )
             }
           >
@@ -103,8 +112,8 @@ export default function Add() {
                       currentStep > index
                         ? 'bg-green-600 text-white'
                         : currentStep === index
-                        ? 'bg-green-200 text-black'
-                        : 'bg-gray-100 text-gray-800'
+                          ? 'bg-green-200 text-black'
+                          : 'bg-gray-100 text-gray-800'
                     }`}
                   >
                     <span className={`${currentStep > index ? 'hidden' : ''}`}>
@@ -149,9 +158,9 @@ export default function Add() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
-                viewBox="0 0 24 0"
+                viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor"
+                stroke="black"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -190,7 +199,7 @@ export default function Add() {
                 handleFinishingClick(
                   'Creating product....',
                   'Successfully created product',
-                  'Successfully created the product!'
+                  'Successfully created the product!',
                 )
               }
             >
@@ -207,19 +216,23 @@ export default function Add() {
           </div>
           <div className="mt-5 sm:mt-8">
             <AnimatePresence mode="wait">
-              {steps.map(({ component: StepComponent, index }) => (
-                currentStep === index && (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: currentStep > index ? -50 : 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: currentStep > index ? 50 : -50 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <StepComponent />
-                  </motion.div>
-                )
-              ))}
+              {steps.map(
+                ({ component: StepComponent, index }) =>
+                  currentStep === index && (
+                    <motion.div
+                      key={index}
+                      initial={{
+                        opacity: 0,
+                        x: currentStep > index ? -50 : 50,
+                      }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: currentStep > index ? 50 : -50 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <StepComponent />
+                    </motion.div>
+                  ),
+              )}
             </AnimatePresence>
           </div>
           <div
