@@ -418,4 +418,4 @@ const Page: React.FC = () => {
   );
 };
 
-export default Edit;
+export default Page;
