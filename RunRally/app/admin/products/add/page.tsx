@@ -1,13 +1,13 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import toast, { Toaster } from 'react-hot-toast';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import React, { useState } from 'react';
+import toast, { Renderable, Toast, Toaster, ValueFunction } from 'react-hot-toast';
+import { useState } from 'react';
+import SuccessModal from '@/components/success/successModal';
 import GeneralDetails from '@/components/admin/add/GeneralsDetails';
 import StockDetails from '@/components/admin/add/StockDetails';
 import ProductPictures from '@/components/admin/add/ProductPIctures';
 import FinalProduct from '@/components/admin/add/FinalProduct';
+import { Button } from '@/components/ui/button';
 
 const steps = [
   { component: GeneralDetails, index: 1, label: 'General Details' },
@@ -17,6 +17,8 @@ const steps = [
 
 export default function Add() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isModalOpen, setModalOpen] = useState(false); // State to control modal visibility
+  const router = useRouter();
 
   const handleNext = () => {
     setCurrentStep((prevStep) => Math.min(prevStep + 1, 4));
@@ -26,20 +28,29 @@ export default function Add() {
     setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
   };
 
-  const router = useRouter();
-
-  const handleFinishingClick = (load: string, success: string) => {
+  const handleFinishingClick = (load: Renderable | ValueFunction<Renderable, Toast>, success: Renderable | ValueFunction<Renderable, Toast>) => {
     toast.loading(load);
     setTimeout(() => {
       toast.dismiss();
       toast.success(success);
-      router.push('/admin/products');
+      setModalOpen(true); // Show success modal
+      // router.push('/admin/products'); // Commented to show modal first
     }, 2000);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    router.push('/admin/products'); // Navigate after closing modal
   };
 
   return (
     <div className="p-2">
       <Toaster />
+      <SuccessModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        message="Successfully created product!"
+      />
       <div className="flex items-center gap-4">
         <h1 className="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
           Add Product
