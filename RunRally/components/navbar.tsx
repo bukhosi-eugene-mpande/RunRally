@@ -66,12 +66,14 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <User
-            name=""
-            avatarProps={{
-              src: 'https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg',
-            }}
-          />
+          <Link href="/admin">
+            <User
+              name=""
+              avatarProps={{
+                src: 'https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg',
+              }}
+            />
+          </Link>
         </NavbarItem>
         <NavbarItem className="hidden sm:flex gap-2">
           <div className="relative py-2 mb-3">
