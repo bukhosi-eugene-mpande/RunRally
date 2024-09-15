@@ -2,7 +2,7 @@
 import { faker } from '@faker-js/faker';
 import Link from 'next/link';
 import { Package2, Search, Menu, CircleUser } from 'lucide-react';
-import { useTheme } from "next-themes"
+import { useTheme } from 'next-themes';
 import { Logo } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {

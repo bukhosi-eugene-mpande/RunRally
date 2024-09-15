@@ -33,6 +33,8 @@ import {
 } from '@/components/ui/table';
 import { Textarea } from '@/components/ui/textarea';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { useRouter } from 'next/navigation';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Edit() {
   const searchParams = useSearchParams();
@@ -40,9 +42,20 @@ export default function Edit() {
   const products = data.products;
   const product =
     products.find((product) => product.id === productType) || products[0];
+  const router = useRouter();
+
+  const handleFinishingClick = (load: string, success: string) => {
+    toast.loading(load);
+    setTimeout(() => {
+      toast.dismiss();
+      toast.success(success);
+      router.push('/admin/products');
+    }, 2000);
+  };
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
+      <Toaster />
       <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           <div className="mx-auto grid flex-1 auto-rows-max gap-4">
@@ -60,14 +73,30 @@ export default function Edit() {
                 In stock
               </Badge>
               <div className="hidden items-center gap-2 md:ml-auto md:flex">
-                <Link href="/admin/products">
-                  <Button variant="outline" size="sm">
-                    Discard
-                  </Button>
-                </Link>
-                <Link href="/admin/products">
-                  <Button size="sm">Save Product</Button>
-                </Link>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() =>
+                    handleFinishingClick(
+                      'Discarding product....',
+                      'Discarded product',
+                    )
+                  }
+                >
+                  Discard
+                </Button>
+                <Button
+                  size="sm"
+                  className="bg-green-600 hover:bg-green-700"
+                  onClick={() =>
+                    handleFinishingClick(
+                      'Saving product....',
+                      'Successfully saved product',
+                    )
+                  }
+                >
+                  Save Product
+                </Button>
               </div>
             </div>
             <div className="grid gap-4 md:grid-cols-[1fr_250px] lg:grid-cols-3 lg:gap-8">
