@@ -31,7 +31,7 @@ const SuccessModal = ({ isOpen, onClose, message }: SuccessModalProps) => {
           </svg>
         </div>
         <h2>Success</h2>
-        <p>{message || 'Successfully added!'}</p>
+        <p>{message}</p>
         <button onClick={onClose}>Close</button>
       </div>
       <style jsx>{`

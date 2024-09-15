@@ -8,6 +8,7 @@ import StockDetails from '@/components/admin/add/StockDetails';
 import ProductPictures from '@/components/admin/add/ProductPIctures';
 import FinalProduct from '@/components/admin/add/FinalProduct';
 import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const steps = [
   { component: GeneralDetails, index: 1, label: 'General Details' },
@@ -17,7 +18,8 @@ const steps = [
 
 export default function Add() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [isModalOpen, setModalOpen] = useState(false); // State to control modal visibility
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
   const router = useRouter();
 
   const handleNext = () => {
@@ -28,29 +30,29 @@ export default function Add() {
     setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
   };
 
-  const handleFinishingClick = (load: Renderable | ValueFunction<Renderable, Toast>, success: Renderable | ValueFunction<Renderable, Toast>) => {
+  const handleFinishingClick = (
+    load: Renderable | ValueFunction<Renderable, Toast>,
+    success: Renderable | ValueFunction<Renderable, Toast>,
+    message: string
+  ) => {
     toast.loading(load);
     setTimeout(() => {
+      setModalMessage(message);
       toast.dismiss();
       toast.success(success);
-      setModalOpen(true); // Show success modal
-      // router.push('/admin/products'); // Commented to show modal first
+      setModalOpen(true);
     }, 2000);
   };
 
   const closeModal = () => {
     setModalOpen(false);
-    router.push('/admin/products'); // Navigate after closing modal
+    router.push('/admin/products');
   };
 
   return (
     <div className="p-2">
       <Toaster />
-      <SuccessModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        message="Successfully created product!"
-      />
+      <SuccessModal isOpen={isModalOpen} onClose={closeModal} message={modalMessage} />
       <div className="flex items-center gap-4">
         <h1 className="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
           Add Product
@@ -63,6 +65,7 @@ export default function Add() {
               handleFinishingClick(
                 'Discarding product....',
                 'Product discarded',
+                'Product discarded successfully!'
               )
             }
           >
@@ -75,6 +78,7 @@ export default function Add() {
               handleFinishingClick(
                 'Saving product....',
                 'Successfully saved product',
+                'Successfully saved the product!'
               )
             }
           >
@@ -99,8 +103,8 @@ export default function Add() {
                       currentStep > index
                         ? 'bg-green-600 text-white'
                         : currentStep === index
-                          ? 'bg-green-200 text-black'
-                          : 'bg-gray-100 text-gray-800'
+                        ? 'bg-green-200 text-black'
+                        : 'bg-gray-100 text-gray-800'
                     }`}
                   >
                     <span className={`${currentStep > index ? 'hidden' : ''}`}>
@@ -145,7 +149,7 @@ export default function Add() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
-                viewBox="0 0 24 24"
+                viewBox="0 0 24 0"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -186,6 +190,7 @@ export default function Add() {
                 handleFinishingClick(
                   'Creating product....',
                   'Successfully created product',
+                  'Successfully created the product!'
                 )
               }
             >
@@ -201,15 +206,21 @@ export default function Add() {
             </button>
           </div>
           <div className="mt-5 sm:mt-8">
-            {steps.map(({ component: StepComponent, index }) => (
-              <div
-                key={index}
-                data-hs-stepper-content-item={`{"index": ${index}}`}
-                style={{ display: currentStep === index ? 'block' : 'none' }}
-              >
-                <StepComponent />
-              </div>
-            ))}
+            <AnimatePresence mode="wait">
+              {steps.map(({ component: StepComponent, index }) => (
+                currentStep === index && (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: currentStep > index ? -50 : 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: currentStep > index ? 50 : -50 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <StepComponent />
+                  </motion.div>
+                )
+              ))}
+            </AnimatePresence>
           </div>
           <div
             data-hs-stepper-content-item='{"isFinal": true}'
