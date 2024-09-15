@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronLeft, PlusCircle, Upload } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -33,9 +33,9 @@ import {
 } from '@/components/ui/table';
 import { Textarea } from '@/components/ui/textarea';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { useRouter } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
+import SuccessModal from '@/components/success/successModal'; // Import the SuccessModal
 
 const Edit: React.FC = () => {
   const searchParams = useSearchParams();
@@ -45,18 +45,37 @@ const Edit: React.FC = () => {
     products.find((product) => product.id === productType) || products[0];
   const router = useRouter();
 
-  const handleFinishingClick = (load: string, success: string) => {
+  // State for managing modal visibility and message
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
+  const handleFinishingClick = (
+    load: string,
+    success: string,
+    message: string,
+  ) => {
     toast.loading(load);
     setTimeout(() => {
       toast.dismiss();
       toast.success(success);
-      router.push('/admin/products');
+      setModalMessage(message); // Set the success message for the modal
+      setModalOpen(true); // Show success modal
     }, 2000);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    router.push('/admin/products'); // Navigate after closing modal
   };
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <Toaster />
+      <SuccessModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        message={modalMessage}
+      />
       <div className="flex flex-col sm:gap-4 sm:py-4">
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           <div className="mx-auto grid flex-1 auto-rows-max gap-4">
@@ -81,6 +100,7 @@ const Edit: React.FC = () => {
                     handleFinishingClick(
                       'Discarding product....',
                       'Discarded product',
+                      'Product discarded successfully!', // Custom message for discarding
                     )
                   }
                 >
@@ -93,6 +113,7 @@ const Edit: React.FC = () => {
                     handleFinishingClick(
                       'Saving product....',
                       'Successfully saved product',
+                      'Successfully saved the product!', // Success message for saving
                     )
                   }
                 >
