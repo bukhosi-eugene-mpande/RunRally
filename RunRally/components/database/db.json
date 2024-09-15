@@ -1,0 +1,183 @@
+{
+  "orders": [
+    {
+      "id": 1,
+      "customer": "John Doe",
+      "email": "johndoe@exapmple.com",
+      "type": "cash on delivery",
+      "status": "pending",
+      "total": 1000,
+      "date": "2021-09-01",
+      "product": [
+        {
+          "id": 1,
+          "name": "T Shirt",
+          "price": 500,
+          "quantity": 2
+        }
+      ],
+      "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10001"
+      },
+      "phone": "123-456-7890"
+    },
+    {
+      "id": 2,
+      "customer": "Jane Smith",
+      "email": "janesmith@example.com",
+      "type": "credit card",
+      "status": "Fulfilled",
+      "total": 1500,
+      "date": "2021-09-02",
+      "product": [
+        {
+          "id": 3,
+          "name": "Jeans",
+          "price": 1500,
+          "quantity": 1
+        }
+      ],
+      "address": {
+        "street": "456 Elm St",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zip": "90001"
+      },
+      "phone": "987-654-3210"
+    },
+    {
+      "id": 3,
+      "customer": "Alice Johnson",
+      "email": "alicejohnson@example.com",
+      "type": "paypal",
+      "status": "shipped",
+      "total": 2000,
+      "date": "2021-09-03",
+      "product": [
+        {
+          "id": 4,
+          "name": "Jacket",
+          "price": 2000,
+          "quantity": 1
+        }
+      ],
+      "address": {
+        "street": "789 Oak St",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60601"
+      },
+      "phone": "555-123-4567"
+    },
+    {
+      "id": 4,
+      "customer": "Bob Brown",
+      "email": "bobbrown@example.com",
+      "type": "cash on delivery",
+      "status": "pending",
+      "total": 750,
+      "date": "2021-09-04",
+      "product": [
+        {
+          "id": 5,
+          "name": "Shoes",
+          "price": 750,
+          "quantity": 1
+        }
+      ],
+      "address": {
+        "street": "101 Pine St",
+        "city": "Houston",
+        "state": "TX",
+        "zip": "77001"
+      },
+      "phone": "444-555-6666"
+    },
+    {
+      "id": 5,
+      "customer": "Charlie Davis",
+      "email": "charliedavis@example.com",
+      "type": "credit card",
+      "status": "Fulfilled",
+      "total": 1200,
+      "date": "2021-09-05",
+      "product": [
+        {
+          "id": 6,
+          "name": "Hat",
+          "price": 600,
+          "quantity": 2
+        }
+      ],
+      "address": {
+        "street": "202 Maple St",
+        "city": "Phoenix",
+        "state": "AZ",
+        "zip": "85001"
+      },
+      "phone": "333-444-5555"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod1",
+      "images": [
+        "/product/shirt/shirt1.png",
+        "/product/shirt/shirt2.png",
+        "/product/shirt/shirt3.png"
+      ],
+      "name": "T Shirt",
+      "status": "active",
+      "sold": 25,
+      "price": 500,
+      "created": "2021-09-01"
+    },
+    {
+      "id": "prod2",
+      "images": [
+        "/product/vest/runningvest1.png",
+        "/product/vest/runningvest2.png",
+        "/product/vest/runningvest3.png"
+      ],
+      "name": "Running Vest",
+      "status": "active",
+      "sold": 20,
+      "price": 150,
+      "created": "2021-09-01"
+    },
+    {
+      "id": "prod3",
+      "images": [
+        "/product/bottle/bottle1.avif",
+        "/product/bottle/bottle2.jpg",
+        "/product/bottle/bottle3.jpg"
+      ],
+      "name": "Bottle",
+      "status": "active",
+      "sold": 45,
+      "price": 200,
+      "created": "2021-09-01"
+    },
+    {
+      "id": "prod4",
+      "images": ["/product/cap/cap1.png", "/product/cap/cap2.png"],
+      "name": "Cap",
+      "status": "active",
+      "sold": 15,
+      "price": 100,
+      "created": "2021-09-01"
+    },
+    {
+      "id": "prod5",
+      "images": ["/product/armholder/armholder.png"],
+      "name": "Armholder",
+      "status": "active",
+      "sold": 35,
+      "price": 250,
+      "created": "2021-09-01"
+    }
+  ]
+}
