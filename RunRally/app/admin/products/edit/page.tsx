@@ -35,8 +35,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { useRouter } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
+import { Suspense } from 'react';
 
-export default function Edit() {
+const Edit: React.FC = () => {
   const searchParams = useSearchParams();
   const productType = searchParams.get('id');
   const products = data.products;
@@ -386,4 +387,14 @@ export default function Edit() {
       </div>
     </div>
   );
-}
+};
+
+const Page: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Edit />
+    </Suspense>
+  );
+};
+
+export default Page;
