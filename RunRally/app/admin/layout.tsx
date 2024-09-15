@@ -2,6 +2,7 @@
 import { faker } from '@faker-js/faker';
 import Link from 'next/link';
 import { Package2, Search, Menu, CircleUser } from 'lucide-react';
+import { useTheme } from "next-themes"
 import { Logo } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
@@ -23,6 +24,8 @@ export default function AdminLayout({
 }) {
   faker.seed(123);
   const pathname = usePathname();
+  const { setTheme } = useTheme();
+  setTheme('light');
 
   const isCurrentPage = (path: string) => {
     return pathname === path;
