@@ -1,11 +1,12 @@
 // pages/shop.js
 import dynamic from 'next/dynamic';
-import Dropdown from '../../components/dropdown';
-import ProductList from '../../components/productlist';
-import Sidebar from '../../components/sidebar';
+import Dropdown from '../../../components/dropdown';
+import ProductList from '../../../components/productlist';
+import Sidebar from '../../../components/sidebar';
 import { Navbar } from '@/components/navbar';
+import Breadcrumbs from '@/components/breadcrumbs';
 
-const ShopPage = () => {
+const MerchPage = () => {
   const products = [
     {
       name: 'RunRally Shirt Blue',
@@ -50,7 +51,11 @@ const ShopPage = () => {
       <div className="fixed top-0 left-0 right-0 z-50">
         <Navbar />
       </div>
-      <div className="flex p-4 space-x-4 mt-28">
+      {/* Add margin or padding to create space between the navbar and breadcrumbs */}
+      <div className="mt-8 px-8">
+        <Breadcrumbs />
+      </div>
+      <div className="flex p-8 space-x-4 pt-4">
         <Sidebar className="w-1/4" />
         <ProductList products={products} className="w-3/4" />
       </div>
@@ -58,4 +63,4 @@ const ShopPage = () => {
   );
 };
 
-export default ShopPage;
+export default MerchPage;

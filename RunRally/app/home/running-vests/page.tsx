@@ -1,7 +1,7 @@
 // pages/shop.js
-import Dropdown from '../../components/dropdown';
-import Sidebar from '../../components/sidebar';
-import ProductList from '../../components/productlist';
+import Dropdown from '../../../components/dropdown';
+import Sidebar from '../../../components/sidebar';
+import ProductList from '../../../components/productlist';
 import { Navbar } from '@/components/navbar';
 const RunningVestPage = () => {
   const products = [

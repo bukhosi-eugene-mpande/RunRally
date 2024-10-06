@@ -1,70 +1,120 @@
 'use client';
+import React, { useState } from 'react';
 import {
   Navbar as NextUINavbar,
   NavbarContent,
   NavbarItem,
 } from '@nextui-org/navbar';
-import { Button } from '@nextui-org/button';
-import { Kbd } from '@nextui-org/kbd';
-import { Link } from '@nextui-org/link';
 import { Input } from '@nextui-org/input';
-import { link as linkStyles } from '@nextui-org/theme';
+import { Link } from '@nextui-org/link';
 import { User } from '@nextui-org/react';
-import NextLink from 'next/link';
-import clsx from 'clsx';
-import { siteConfig } from '@/config/site';
 import { ShoppingCartIcon, Logo } from '@/components/icons';
 
 export const Navbar = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredItems, setFilteredItems] = useState<string[]>([]);
+
+  // Simulated list of items for the dropdown
+  const items = [
+    'Apple',
+    'Banana',
+    'Orange',
+    'Mango',
+    'Pineapple',
+    'Grapes',
+    'Strawberry',
+  ];
+
+  // Handle the input change and filter the dropdown items
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+
+    // Filter the items based on the input value
+    if (value) {
+      const filtered = items.filter((item) =>
+        item.toLowerCase().includes(value.toLowerCase()),
+      );
+      setFilteredItems(filtered);
+    } else {
+      setFilteredItems([]);
+    }
+  };
+
   return (
     <NextUINavbar
       maxWidth="full"
       position="sticky"
-      height={25}
-      className="bg-green-500"
-      classNames={{
-        item: [
-          'flex',
-          'relative',
-          'h-full',
-          'items-center',
-          "data-[active=true]:after:content-['']",
-          'data-[active=true]:after:absolute',
-          'data-[active=true]:after:bottom-0',
-          'data-[active=true]:after:left-0',
-          'data-[active=true]:after:right-0',
-          'data-[active=true]:after:h-[2px]',
-          'data-[active=true]:after:rounded-[2px]',
-          'data-[active=true]:after:bg-primary',
-        ],
-      }}
+      className="bg-green-500 h-16" // Reduced height of the navbar
     >
-      <li className="list-none p-2 m-2">
-        <div className="gap-3 max-w-fit justify-center">
-          <Logo src="" alt="" />
+      {/* Logo section with RunRally text and Logo next to each other */}
+      <li className="list-none p-1 m-1">
+        <div className="flex items-center gap-2">
+          {' '}
+          {/* Flex container to align items */}
+          <a href="/">
+            <h1 className="text-white text-2xl font-semibold">RunRally</h1>
+          </a>
+          <Logo
+            src=""
+            alt="Logo"
+            className="h-8 w-10" // Adjust height and width to fit the navbar
+          />
         </div>
       </li>
 
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href} className="text-3xl font-semibold">
-              <Link
-                color="foreground"
-                href={item.href}
-                className="text-3xl font-semibold text-black"
-              >
-                {item.label}
-              </Link>
-            </NavbarItem>
-          ))}
-        </ul>
-      </NavbarContent>
+      {/* Search bar centered */}
+      <div className="relative flex justify-center  px-16 w-full py-1">
+        <Input
+          isClearable
+          type="search"
+          placeholder="Search"
+          className="w-full max-w-lg text-center rounded-full py-1.5"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
 
+        {/* Dropdown menu */}
+        {filteredItems.length > 0 && (
+          <div className="absolute top-full mt-2 w-full max-w-lg bg-white border border-gray-300 shadow-lg rounded-md z-10">
+            <ul>
+              {filteredItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => {
+                    setSearchTerm(item); // Set the clicked item as the input value
+                    setFilteredItems([]); // Clear the dropdown
+                  }}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* Right-side content (User icon, shopping cart, etc.) */}
       <NavbarContent
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
+        {/* Orders link */}
+        <NavbarItem className="hidden sm:flex gap-2">
+          <Link href="/orders" className="text-lg font-semibold text-white">
+            Orders
+          </Link>
+        </NavbarItem>
+
+        {/* My Account link */}
+        <NavbarItem className="hidden sm:flex gap-2">
+          <Link href="/account" className="text-lg font-semibold text-white">
+            My Account
+          </Link>
+        </NavbarItem>
+
+        {/* User avatar */}
         <NavbarItem className="hidden sm:flex gap-2">
           <Link href="/admin">
             <User
@@ -75,22 +125,12 @@ export const Navbar = () => {
             />
           </Link>
         </NavbarItem>
+
+        {/* Shopping Cart Icon */}
         <NavbarItem className="hidden sm:flex gap-2">
-          <div className="relative py-2 mb-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="#ffffff"
-              className="file: mt-4 h-10 w-10"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-              />
-            </svg>
+          <div className="relative py-1 mb-2">
+            <ShoppingCartIcon />{' '}
+            {/* Assuming this is an imported shopping cart icon */}
           </div>
         </NavbarItem>
       </NavbarContent>
