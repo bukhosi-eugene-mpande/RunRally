@@ -50,7 +50,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
               <img
                 src={image}
                 alt={`Product image ${index + 1}`}
-                className="mx-auto"
+                className="mx-auto border rounded bg-slate-200"
               />
             </div>
           ))}
@@ -60,13 +60,13 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         ref={thumbSwiperRef}
         className="swiper product-thumb max-w-[608px] mx-auto"
       >
-        <div className="swiper-wrapper">
+        <div className="swiper-wrapper mx-16">
           {images.map((image, index) => (
             <div key={index} className="swiper-slide">
               <img
                 src={image}
                 alt={`Thumbnail image ${index + 1}`}
-                className="cursor-pointer border-2 border-gray-50 transition-all duration-500 hover:border-green-600 slide:border-green-600"
+                className="cursor-pointer bg-slate-100 border rounded transition-all duration-500 hover:border-green-600 slide:border-green-600"
               />
             </div>
           ))}

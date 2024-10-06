@@ -66,7 +66,7 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
 
   return (
     <aside
-      className={`border rounded bg-green-500 p-4 w-64 ${className}`} // Apply passed className
+      className={`rounded bg-green-500 p-4 w-64 shadow-2xl ${className}`} // Apply shadow-lg for a 3D effect
       {...props} // Spread other HTML attributes
     >
       <div className="relative w-full mb-4">
@@ -79,7 +79,7 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
           placeholder="Search"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-10 py-1 rounded text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-10 py-1 rounded text-center focus:outline-none focus:ring-2 focus:ring-black-500"
         />
       </div>
       <ul>
@@ -97,9 +97,7 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
           </li>
         ))}
       </ul>
-      {/* Divider Line */}
       <hr className="border-t border-gray-100 my-4" />
-      {/* Sorting */}
       <div className="mb-4">
         <select
           id="sort"
@@ -107,17 +105,12 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
           onChange={handleSortChange}
           className="w-full py-1 px-2 bg-green-500 text-white hover:bg-green-600 rounded cursor-pointer"
         >
-          <option value="" className="hover:bg-green-600 rounded">
-            Sort By
-          </option>
+          <option value="">Sort By</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
-          {/* Add more sorting options as needed */}
         </select>
       </div>
-      {/* Divider Line */}
       <hr className="border-t border-gray-100 my-4" />
-      {/* Filtering */}
       <div className="mb-4">
         <select
           id="filter"
@@ -129,10 +122,8 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
           <option value="brand">Shirts</option>
           <option value="size">Size</option>
           <option value="color">Color</option>
-          {/* Add more filter options as needed */}
         </select>
       </div>
-      {/* Divider Line */}
       <hr className="border-t border-gray-100 my-4" />
     </aside>
   );

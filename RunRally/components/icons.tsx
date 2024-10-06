@@ -11,7 +11,7 @@ export const Logo: React.FC<LogoProps> = ({
   const { src, alt, ...restProps } = props;
   return (
     <Image
-      src="/black_logo_crp.png"
+      src="/logo_cropped.png"
       width={typeof size === 'number' ? size : Number(width)}
       height={typeof size === 'number' ? size : Number(height)}
       alt="RunRally Logo"

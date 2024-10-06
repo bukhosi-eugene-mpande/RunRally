@@ -21,7 +21,7 @@ export const Navbar = () => {
       maxWidth="full"
       position="sticky"
       height={25}
-      className="bg-green-100"
+      className="bg-green-500"
       classNames={{
         item: [
           'flex',
@@ -82,7 +82,7 @@ export const Navbar = () => {
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="#000000"
+              stroke="#ffffff"
               className="file: mt-4 h-10 w-10"
             >
               <path
