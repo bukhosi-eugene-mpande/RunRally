@@ -4,8 +4,30 @@ import { Review } from '@/types';
 
 export const ReviewComponent: React.FC<{ review: Review }> = ({ review }) => {
   return (
-    <div className="pt-11 pb-8 border-b border-gray-100 max-xl:max-w-2xl max-xl:mx-auto">
-      <div className="flex items-center gap-3 mb-4">
+    <div className="pt-4 pb-8 border-b space-y-6 shadow-sm rounded-medium bg-slate-50 max-xl:max-w-2xl max-xl:mx-auto mb-8">
+      
+      <h3 className="font-manrope font-semibold text-xl sm:text-2xl leading-9 text-black mb-6 px-4">
+        {review.title}
+      </h3>
+      <div className="flex sm:items-center flex-col min-[400px]:flex-row justify-between gap-5 mb-4">
+        <div className="flex items-center gap-3 px-4">
+          <img
+            src={review.authorImage}
+            alt={`${review.author} image`}
+            className="w-8 h-8 rounded-full"
+          />
+          <h6 className="font-semibold text-lg leading-8 text-green-600">
+            {review.author}
+          </h6>
+        </div>
+        <p className="font-normal text-lg leading-8 text-gray-400 px-4">
+          {review.date}
+        </p>
+      </div>
+      <p className="font-normal text-lg leading-8 text-black max-xl:text-justify px-4">
+        {review.content}
+      </p>
+      <div className="flex items-center gap-3 mt-4 px-4">
         {Array.from({ length: review.rating }, (_, index) => (
           <svg
             key={index}
@@ -29,27 +51,6 @@ export const ReviewComponent: React.FC<{ review: Review }> = ({ review }) => {
           </svg>
         ))}
       </div>
-      <h3 className="font-manrope font-semibold text-xl sm:text-2xl leading-9 text-black mb-6">
-        {review.title}
-      </h3>
-      <div className="flex sm:items-center flex-col min-[400px]:flex-row justify-between gap-5 mb-4">
-        <div className="flex items-center gap-3">
-          <img
-            src={review.authorImage}
-            alt={`${review.author} image`}
-            className="w-8 h-8 rounded-full"
-          />
-          <h6 className="font-semibold text-lg leading-8 text-green-600">
-            {review.author}
-          </h6>
-        </div>
-        <p className="font-normal text-lg leading-8 text-gray-400">
-          {review.date}
-        </p>
-      </div>
-      <p className="font-normal text-lg leading-8 text-gray-400 max-xl:text-justify">
-        {review.content}
-      </p>
     </div>
   );
 };
