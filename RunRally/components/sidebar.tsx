@@ -25,10 +25,10 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
 
   // Map URL paths to categories
   const routeMap: Record<string, string> = {
-    '/home/merchandise': 'Merchandise',
-    '/home/running-vests': 'Running vests',
-    '/home/fitbit': 'Fitness devices',
-    '/home/equipment': 'Equipment',
+    '/shop/merchandise': 'Merchandise',
+    '/shop/running-vests': 'Running vests',
+    '/shop/fitbit': 'Fitness devices',
+    '/shop/equipment': 'Equipment',
   };
 
   // Update active category based on current pathname

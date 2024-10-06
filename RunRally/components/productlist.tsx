@@ -42,7 +42,7 @@ const ProductList: React.FC<ProductListProps> = ({
           className="flex border bg-white items-center p-6 space-y-6 shadow-xl rounded w-full transform transition duration-300 ease-in-out"
         >
           <Link
-            href={`/home/product?type=${encodeURIComponent(product.type)}`} 
+            href={`/shop/product?type=${encodeURIComponent(product.type)}`} 
             passHref
             className="flex items-center flex-1 cursor-pointer w-full"
           >

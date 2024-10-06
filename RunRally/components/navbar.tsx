@@ -102,14 +102,14 @@ export const Navbar = () => {
       >
         {/* Orders link */}
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link href="/orders" className="text-lg font-semibold text-white">
+          <Link href="/admin/orders" className="text-lg font-semibold text-white">
             Orders
           </Link>
         </NavbarItem>
 
         {/* My Account link */}
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link href="/account" className="text-lg font-semibold text-white">
+          <Link href="/admin" className="text-lg font-semibold text-white">
             My Account
           </Link>
         </NavbarItem>
