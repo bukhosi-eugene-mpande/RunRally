@@ -1,4 +1,4 @@
-'use client'; // This ensures the component is rendered on the client side
+'use client';
 import { useState } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,9 +7,8 @@ import {
   faHeart as faSolidHeart,
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
-import Link from 'next/link'; // Import Link from Next.js
+import Link from 'next/link';
 
-// Define the Product interface
 interface Product {
   name: string;
   price: number;
@@ -17,7 +16,6 @@ interface Product {
   type: string;
 }
 
-// Define the props for the ProductList component
 interface ProductListProps extends React.HTMLAttributes<HTMLDivElement> {
   products: Product[];
 }
@@ -37,37 +35,40 @@ const ProductList: React.FC<ProductListProps> = ({
   };
 
   return (
-    <div className={`flex flex-col space-y-4 ${className}`} {...props}>
+    <div className={`rounded flex flex-col space-y-6 w-full ${className}`} {...props}>
       {products.map((product) => (
         <div
           key={product.name}
-          className="flex items-center bg-white p-6 shadow rounded w-full transform transition duration-300 ease-in-out hover:shadow-lg hover:scale-105"
+          className="flex border bg-white items-center p-6 space-y-6 shadow-xl rounded w-full transform transition duration-300 ease-in-out"
         >
           <Link
-            href={`/home/product?type=${encodeURIComponent(product.type)}`} // Navigate with query parameter
+            href={`/home/product?type=${encodeURIComponent(product.type)}`} 
             passHref
-            className="flex items-center flex-1 cursor-pointer"
+            className="flex items-center flex-1 cursor-pointer w-full"
           >
-            <Image
-              src={product.image}
-              alt={product.name}
-              width={120}
-              height={120}
-            />
-            <div className="ml-4 flex-1 flex flex-col items-center justify-center text-black">
+            <div className="border bg-white p-2 rounded-lg"> {/* White background with padding and rounded edges */}
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={120}
+                height={120}
+                className="rounded-lg" // This will make the image edges rounded
+              />
+            </div>
+            <div className="ml-4 flex-1 flex flex-col items-center justify-center  w-full">
               <h2 className="font-semibold text-2xl">{product.name}</h2>
               <p className="text-xl font-semibold">R {product.price}</p>
             </div>
           </Link>
           <div className="flex flex-col space-y-3">
             <button
-              className="text-gray-600 hover:text-green-500 hover:scale-110 cursor-pointer"
+              className=" hover:scale-110 hover:text-green-700 cursor-pointer"
               onClick={(e) => e.stopPropagation()}
             >
               <FontAwesomeIcon icon={faCartPlus} size="lg" />
             </button>
             <button
-              className={`text-gray-600 hover:text-red-600 hover:scale-110 cursor-pointer ${
+              className={` hover:text-red-600 hover:scale-110 cursor-pointer ${
                 activeHearts[product.name] ? 'text-red-600' : ''
               }`}
               onClick={(e) => {

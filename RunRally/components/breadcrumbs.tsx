@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 const Breadcrumbs: React.FC = () => {
   const pathname = usePathname();
-
+  
   const pathnames = pathname.split('/').filter((x) => x);
 
   return (
