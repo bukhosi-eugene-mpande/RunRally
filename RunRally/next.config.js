@@ -7,8 +7,8 @@ const nextConfig = {
     return [
       // Basic redirect
       {
-        source: '/home',
-        destination: '/shop',
+        source: '/shop',
+        destination: '/shop/merchandise',
         permanent: true,
       },
     ];

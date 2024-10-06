@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import { IconSvgProps, LogoProps } from '@/types';
+import Link from 'next/link';
 
 export const Logo: React.FC<LogoProps> = ({
   size = 150,
@@ -10,13 +11,13 @@ export const Logo: React.FC<LogoProps> = ({
 }) => {
   const { src, alt, ...restProps } = props;
   return (
-    <Image
-      src="/logo_cropped.png"
-      width={typeof size === 'number' ? size : Number(width)}
-      height={typeof size === 'number' ? size : Number(height)}
-      alt="RunRally Logo"
-      {...restProps}
-    />
+      <Image
+        src="/logo_cropped.png"
+        width={typeof size === 'number' ? size : Number(width)}
+        height={typeof size === 'number' ? size : Number(height)}
+        alt="RunRally Logo"
+        {...restProps}
+      />
   );
 };
 

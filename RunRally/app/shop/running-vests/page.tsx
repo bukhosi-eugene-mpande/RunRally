@@ -1,8 +1,9 @@
 // pages/shop.js
-import Dropdown from '../../components/dropdown';
-import Sidebar from '../../components/sidebar';
-import ProductList from '../../components/productlist';
+import Dropdown from '../../../components/dropdown';
+import Sidebar from '../../../components/sidebar';
+import ProductList from '../../../components/productlist';
 import { Navbar } from '@/components/navbar';
+import Breadcrumbs from '../../../components/breadcrumbs';
 const RunningVestPage = () => {
   const products = [
     {
@@ -32,18 +33,16 @@ const RunningVestPage = () => {
   ];
   return (
     <div>
-      {/* Container for the fixed Navbar */}
-      <div className="fixed top-0 left-0 right-0 z-30">
+      <div className="fixed top-0 left-0 right-0 z-50">
         <Navbar />
       </div>
-
-      {/* Main content area with additional margin to account for the fixed Navbar height */}
-      <div className="flex p-4 space-x-4 mt-28">
-        {' '}
-        {/* Adjust the top margin here */}
-        <Sidebar className="w-1/4" /> {/* Sidebar adjusted for layout */}
-        <ProductList products={products} className="w-3/4" />{' '}
-        {/* ProductList adjusted for layout */}
+      {/* Add margin or padding to create space between the navbar and breadcrumbs */}
+      <div className="mt-8 px-8">
+        <Breadcrumbs />
+      </div>
+      <div className="flex p-8 space-x-4 pt-4">
+        <Sidebar className="w-1/4" />
+        <ProductList products={products} className="w-3/4" />
       </div>
     </div>
   );

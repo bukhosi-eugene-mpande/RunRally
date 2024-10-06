@@ -25,10 +25,10 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
 
   // Map URL paths to categories
   const routeMap: Record<string, string> = {
-    '/shop': 'Merchandise',
-    '/running-vests': 'Running vests',
-    '/fitbit': 'Fitness devices',
-    '/equipment': 'Equipment',
+    '/shop/merchandise': 'Merchandise',
+    '/shop/running-vests': 'Running vests',
+    '/shop/fitbit': 'Fitness devices',
+    '/shop/equipment': 'Equipment',
   };
 
   // Update active category based on current pathname
@@ -69,19 +69,6 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
       className={`rounded bg-green-500 p-4 w-64 shadow-2xl ${className}`} // Apply shadow-lg for a 3D effect
       {...props} // Spread other HTML attributes
     >
-      <div className="relative w-full mb-4">
-        <FontAwesomeIcon
-          icon={faSearch}
-          className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-        />
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-10 py-1 rounded text-center focus:outline-none focus:ring-2 focus:ring-black-500"
-        />
-      </div>
       <ul>
         {categories.map((category) => (
           <li
