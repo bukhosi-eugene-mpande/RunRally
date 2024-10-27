@@ -128,9 +128,17 @@ export default function AdminLayout({
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Home</DropdownMenuItem>
+              <DropdownMenuItem>
+                < Link href="/home" >
+                 Home
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/" >
+                Logout
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
