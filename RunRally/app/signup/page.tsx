@@ -25,7 +25,7 @@ export default function SignIn() {
     setTimeout(() => {
       toast.dismiss();
       toast.success(`Successfully authenticated with ${provider}`);
-      router.push('/'); // Redirect to home page after authentication
+      router.push('/home'); // Redirect to home page after authentication
     }, 2000);
   };
 
@@ -94,7 +94,7 @@ export default function SignIn() {
     } else {
       toast.dismiss();
       toast.success('Sign up successful!');
-      router.push('/');
+      router.push('/home');
     }
   };
 

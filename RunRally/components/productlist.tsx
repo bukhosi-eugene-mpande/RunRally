@@ -35,18 +35,23 @@ const ProductList: React.FC<ProductListProps> = ({
   };
 
   return (
-    <div className={`rounded flex flex-col space-y-6 w-full ${className}`} {...props}>
+    <div
+      className={`rounded flex flex-col space-y-6 w-full ${className}`}
+      {...props}
+    >
       {products.map((product) => (
         <div
           key={product.name}
           className="flex border bg-white items-center p-6 space-y-6 shadow-xl rounded w-full transform transition duration-300 ease-in-out"
         >
           <Link
-            href={`/shop/product?type=${encodeURIComponent(product.type)}`} 
+            href={`/shop/product?type=${encodeURIComponent(product.type)}`}
             passHref
             className="flex items-center flex-1 cursor-pointer w-full"
           >
-            <div className="border bg-white p-2 rounded-lg"> {/* White background with padding and rounded edges */}
+            <div className="border bg-white p-2 rounded-lg">
+              {' '}
+              {/* White background with padding and rounded edges */}
               <Image
                 src={product.image}
                 alt={product.name}

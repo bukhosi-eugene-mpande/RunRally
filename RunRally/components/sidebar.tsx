@@ -31,12 +31,13 @@ const Sidebar: React.FC<SidebarProps> = ({
   const router = useRouter();
   const pathname = usePathname();
 
+  // Update active category based on the current URL path
   useEffect(() => {
-    const currentCategory = categories.find((category) => category.path === pathname);
+    const currentCategory = categories.find((category) => pathname.startsWith(category.path));
     if (currentCategory) {
       setActiveCategory(currentCategory.name);
     }
-  }, [pathname, categories]);
+  }, [pathname]); // Run whenever the URL path changes
 
   const handleCategoryClick = (category: { name: string; path: string }) => {
     setActiveCategory(category.name);

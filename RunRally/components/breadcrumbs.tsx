@@ -5,15 +5,24 @@ import { usePathname } from 'next/navigation';
 
 const Breadcrumbs: React.FC = () => {
   const pathname = usePathname();
-  
+
   // Split the current path and remove empty strings
   const pathnames = pathname.split('/').filter((x) => x);
+
+  // Helper function to format breadcrumb labels
+  const formatBreadcrumbLabel = (value: string) => {
+    if (value === 'fitbit') return 'Fitness Device';
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  };
 
   return (
     <ol className="flex items-center whitespace-nowrap">
       {/* Static breadcrumb for Home */}
       <li className="inline-flex items-center">
-        <Link href="/" className="flex items-center text-2xl text-gray-600 hover:text-gray-700 focus:outline-none focus:text-gray-600">
+        <Link
+          href="/home"
+          className="flex items-center text-2xl text-gray-600 hover:text-gray-700 focus:outline-none focus:text-gray-600"
+        >
           Home
         </Link>
         <svg
@@ -43,7 +52,7 @@ const Breadcrumbs: React.FC = () => {
             className="inline-flex items-center text-2xl font-semibold text-gray-300 truncate"
             aria-current="page"
           >
-            {value.charAt(0).toUpperCase() + value.slice(1)}
+            {formatBreadcrumbLabel(value)}
           </li>
         ) : (
           <li key={to} className="inline-flex items-center">
@@ -51,7 +60,7 @@ const Breadcrumbs: React.FC = () => {
               href={to}
               className="flex items-center text-2xl text-gray-600 hover:text-gray-700 focus:outline-none focus:text-gray-600"
             >
-              {value.charAt(0).toUpperCase() + value.slice(1)}
+              {formatBreadcrumbLabel(value)}
             </Link>
             <svg
               className="shrink-0 mx-2 size-4 text-gray-400"

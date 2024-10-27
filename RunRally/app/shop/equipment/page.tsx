@@ -2,7 +2,6 @@
 // pages/shop.js
 import Sidebar from '../../../components/sidebar';
 import ProductList from '../../../components/productlist';
-import { Navbar } from '@/components/navbar';
 import Breadcrumbs from '../../../components/breadcrumbs';
 import { SetStateAction, useState } from 'react';
 
@@ -40,9 +39,6 @@ const EquipmentPage = () => {
 
   return (
     <div>
-      <div className="fixed top-0 left-0 right-0 z-50">
-        <Navbar />
-      </div>
       <div className="mt-8 px-8">
         <Breadcrumbs />
       </div>
