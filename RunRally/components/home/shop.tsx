@@ -1,16 +1,20 @@
 'use client';
 import React, { useState } from 'react';
 
-export const Shop = () => {
+interface ShopProps {
+  id: string;
+}
+
+export const Shop = ({ id }: ShopProps) => {
   return (
-    <section className="">
+    <section id={id} className="">
       <div className="mx-auto px-4 py-12 sm:px-6 sm:py-12 lg:px-8">
         <header className="text-center">
           <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">Shop</h2>
         </header>
         <ul className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
           <li>
-            <a href="#" className="group relative block">
+            <a href="shop/merchandise" className="group relative block">
               <img
                 src="/shirt.jpg"
                 alt=""
@@ -28,7 +32,7 @@ export const Shop = () => {
           </li>
 
           <li>
-            <a href="#" className="group relative block">
+            <a href="/shop/equipment" className="group relative block">
               <img
                 src="/bottle.jpg"
                 alt=""
@@ -48,7 +52,7 @@ export const Shop = () => {
           </li>
 
           <li className="lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-            <a href="#" className="group relative block">
+            <a href="/shop/fitbit" className="group relative block">
               <img
                 src="/watch.jpg"
                 alt=""

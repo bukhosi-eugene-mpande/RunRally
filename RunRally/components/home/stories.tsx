@@ -1,7 +1,11 @@
 'use client';
 import React, { useState } from 'react';
 
-export const Stories = () => {
+interface StoriesProps {
+  id: string;
+}
+
+export const Stories: React.FC<StoriesProps> = ({ id }) => {
   const Stories = [
     {
       Header: 'From Couch to Marathon',
@@ -36,7 +40,7 @@ export const Stories = () => {
   ];
 
   return (
-    <section className="bg-white text-black">
+    <section id={id} className="bg-white text-black">
       <div className="container p-2 mx-auto sm:space-y-12">
         <div className="max-w-xl mx-auto justify-center text-center">
           <h2 className="text-3xl font-bold sm:text-4xl">Our Stories</h2>

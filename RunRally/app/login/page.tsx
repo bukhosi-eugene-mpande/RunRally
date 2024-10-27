@@ -25,7 +25,7 @@ export default function Login() {
     setTimeout(() => {
       toast.dismiss();
       toast.success(`Successfully authenticated with ${provider}`);
-      router.push('/'); // Redirect to home page after authentication
+      router.push('/home'); // Redirect to home page after authentication
     }, 2000);
   };
 
@@ -91,7 +91,7 @@ export default function Login() {
       toast.dismiss();
       toast.success('Login successful!', { duration: 1500 });
       setTimeout(() => {
-        router.push('/'); // Redirect to the homepage after a delay
+        router.push('/home'); // Redirect to the homepage after a delay
       }, 1100);
     }
   };

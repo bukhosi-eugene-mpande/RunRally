@@ -1,7 +1,11 @@
 'use client';
 import React, { useState } from 'react';
 
-export const Events = () => {
+interface EventsProps {
+  id: string;
+}
+
+export const Events: React.FC<EventsProps> = ({ id }) => {
   const featuredEvent = {
     date: '15 December',
     title: 'Twilight City Marathon',
@@ -34,7 +38,7 @@ export const Events = () => {
   ];
 
   return (
-    <div className="bg-green-900 text-gray-50">
+    <div id={id} className="bg-green-900 text-gray-50">
       <div className="max-w-xl p-6 mx-auto justify-center text-center">
         <h2 className="text-3xl font-bold sm:text-4xl text-white">
           Upcoming Events

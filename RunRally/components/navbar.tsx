@@ -25,7 +25,7 @@ export const Navbar = () => {
                 <li>
                   <a
                     className="text-black transition hover:text-green-500"
-                    href="#"
+                    href="/shop/merchandise"
                   >
                     {' '}
                     Shop{' '}
@@ -35,7 +35,7 @@ export const Navbar = () => {
                 <li>
                   <a
                     className="text-black transition hover:text-green-500"
-                    href="#"
+                    href="/home#Health"
                   >
                     {' '}
                     Health tips{' '}
@@ -45,7 +45,7 @@ export const Navbar = () => {
                 <li>
                   <a
                     className="text-black transition hover:text-green-500"
-                    href="#"
+                    href="/home#Stories"
                   >
                     {' '}
                     Our Stories{' '}
@@ -55,7 +55,7 @@ export const Navbar = () => {
                 <li>
                   <a
                     className="text-black transition hover:text-green-500"
-                    href="#"
+                    href="/home#Events"
                   >
                     {' '}
                     Events{' '}
@@ -65,7 +65,7 @@ export const Navbar = () => {
                 <li>
                   <a
                     className="text-black transition hover:text-green-500"
-                    href="#"
+                    href="/home#About"
                   >
                     {' '}
                     About Us{' '}
