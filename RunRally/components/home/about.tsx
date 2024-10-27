@@ -8,8 +8,8 @@ interface AboutProps {
 export const About: React.FC<AboutProps> = ({ id }) => {
   return (
     <section id={id}>
-      <div className="mx-auto px-4 py-2 sm:px-6 lg:px-8 bg-green-900 text-white">
-        <div className="max-w-xl mx-auto justify-center text-center">
+      <div className="mx-auto px-4 py-2 sm:px-6 lg:px-8 bg-green-900 text-white ">
+        <div className="max-w-xl mx-auto justify-center text-center pt-3">
           <h2 className="text-3xl font-bold sm:text-4xl">About Us</h2>
 
           <p className="mt-4 text-white text-xl">

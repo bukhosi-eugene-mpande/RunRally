@@ -24,7 +24,7 @@ export const Navbar = () => {
               <ul className="flex items-center gap-6 text-lg">
                 <li>
                   <a
-                    className="text-black transition hover:text-green-900"
+                    className="text-black transition hover:text-green-500"
                     href="/shop/merchandise"
                   >
                     {' '}
@@ -34,7 +34,7 @@ export const Navbar = () => {
 
                 <li>
                   <a
-                    className="text-black transition hover:text-green-900"
+                    className="text-black transition hover:text-green-500"
                     href="/home#Health"
                   >
                     {' '}
@@ -44,7 +44,7 @@ export const Navbar = () => {
 
                 <li>
                   <a
-                    className="text-black transition hover:text-green-900"
+                    className="text-black transition hover:text-green-500"
                     href="/home#Stories"
                   >
                     {' '}
@@ -54,7 +54,7 @@ export const Navbar = () => {
 
                 <li>
                   <a
-                    className="text-black transition hover:text-green-900"
+                    className="text-black transition hover:text-green-500"
                     href="/home#Events"
                   >
                     {' '}
@@ -64,7 +64,7 @@ export const Navbar = () => {
 
                 <li>
                   <a
-                    className="text-black transition hover:text-green-900"
+                    className="text-black transition hover:text-green-500"
                     href="/home#About"
                   >
                     {' '}
