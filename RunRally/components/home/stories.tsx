@@ -41,7 +41,7 @@ export const Stories: React.FC<StoriesProps> = ({ id }) => {
 
   return (
     <section id={id} className="bg-white text-black">
-      <div className="container p-2 mx-auto sm:space-y-12">
+      <div className="container p-2 mx-auto sm:space-y-12 mt-3">
         <div className="max-w-xl mx-auto justify-center text-center">
           <h2 className="text-3xl font-bold sm:text-4xl">Our Stories</h2>
         </div>
