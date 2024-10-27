@@ -82,7 +82,7 @@ export default function Add() {
           </Button>
           <Button
             size="sm"
-            className="bg-green-600 hover:bg-green-700"
+            className="bg-green-900 hover:bg-green-700"
             onClick={() =>
               handleFinishingClick(
                 'Saving product....',
@@ -110,7 +110,7 @@ export default function Add() {
                   <span
                     className={`size-7 flex justify-center items-center shrink-0 font-medium rounded-full ${
                       currentStep > index
-                        ? 'bg-green-600 text-white'
+                        ? 'bg-green-900 text-white'
                         : currentStep === index
                           ? 'bg-green-200 text-black'
                           : 'bg-gray-100 text-gray-800'
@@ -171,7 +171,7 @@ export default function Add() {
             </button>
             <button
               type="button"
-              className="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+              className="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-green-900 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
               onClick={handleNext}
               disabled={currentStep === 4}
             >
@@ -193,7 +193,7 @@ export default function Add() {
             </button>
             <button
               type="button"
-              className="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+              className="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-green-900 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
               style={{ display: currentStep === 4 ? 'block' : 'none' }}
               onClick={() =>
                 handleFinishingClick(
@@ -207,7 +207,7 @@ export default function Add() {
             </button>
             <button
               type="reset"
-              className="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+              className="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-green-900 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
               style={{ display: currentStep === 4 ? 'block' : 'none' }}
               onClick={() => setCurrentStep(1)}
             >

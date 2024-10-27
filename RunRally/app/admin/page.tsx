@@ -109,7 +109,7 @@ export default function Dashboard() {
               <Button
                 asChild
                 size="sm"
-                className="ml-auto gap-1 bg-green-600 text-white hover:bg-green-700"
+                className="ml-auto gap-1 bg-green-900 text-white hover:bg-green-700"
               >
                 <Link href="admin/orders">
                   View All

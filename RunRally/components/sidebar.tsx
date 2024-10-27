@@ -65,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <aside className={`rounded bg-green-500 p-4 w-64 shadow-2xl ${className}`} {...props}>
+    <aside className={`rounded bg-green-900 p-4 w-64 shadow-2xl ${className}`} {...props}>
       <ul>
         {categories.map((category) => (
           <li
@@ -73,8 +73,8 @@ const Sidebar: React.FC<SidebarProps> = ({
             onClick={() => handleCategoryClick(category)}
             className={`text-white px-4 py-2 mb-2 cursor-pointer text-center font-bold ${
               activeCategory === category.name
-                ? 'bg-green-600 font-bold rounded'
-                : 'hover:bg-green-600 rounded'
+                ? 'bg-green-900 font-bold rounded'
+                : 'hover:bg-green-900 rounded'
             }`}
           >
             {category.name}
@@ -90,7 +90,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           id="type-filter"
           value={selectedType}
           onChange={handleTypeFilterChange}
-          className="w-full py-1 px-2 bg-green-500 text-white hover:bg-green-600 rounded cursor-pointer"
+          className="w-full py-1 px-2 bg-green-900 text-white hover:bg-green-900 rounded cursor-pointer"
         >
           <option value="">All Types</option>
           {types.map((type) => (
@@ -110,7 +110,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           id="sort"
           value={sortOption}
           onChange={handleSortChange}
-          className="w-full py-1 px-2 bg-green-500 text-white hover:bg-green-600 rounded cursor-pointer"
+          className="w-full py-1 px-2 bg-green-900 text-white hover:bg-green-900 rounded cursor-pointer"
         >
           <option value="">Sort By</option>
           <option value="price-asc">Price: Low to High</option>

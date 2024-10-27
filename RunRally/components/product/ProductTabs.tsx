@@ -42,7 +42,7 @@ const Tabs: React.FC<TabsProps> = ({ description, details }) => {
         >
           <button
             type="button"
-            className={`hs-tab-active:font-semibold hs-tab-active:border-green-600 hs-tab-active:text-green-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-xl whitespace-nowrap text-gray-500 hover:text-green-600 focus:outline-none focus:text-green-600 disabled:opacity-50 disabled:pointer-events-none dark:hover:text-green-500 dark:focus:text-green-500 ${activeTab === 'basic-tabs-1' ? 'font-semibold border-green-600 text-green-600' : ''}`}
+            className={`hs-tab-active:font-semibold hs-tab-active:border-green-900 hs-tab-active:text-green-900 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-xl whitespace-nowrap text-gray-500 hover:text-green-900 focus:outline-none focus:text-green-900 disabled:opacity-50 disabled:pointer-events-none dark:hover:text-green-900 dark:focus:text-green-900 ${activeTab === 'basic-tabs-1' ? 'font-semibold border-green-900 text-green-900' : ''}`}
             id="basic-tabs-item-1"
             aria-selected={activeTab === 'basic-tabs-1'}
             onClick={() => handleTabClick('basic-tabs-1')}
@@ -53,7 +53,7 @@ const Tabs: React.FC<TabsProps> = ({ description, details }) => {
           </button>
           <button
             type="button"
-            className={`hs-tab-active:font-semibold hs-tab-active:border-green-600 hs-tab-active:text-green-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-xl whitespace-nowrap text-gray-500 hover:text-green-600 focus:outline-none focus:text-green-600 disabled:opacity-50 disabled:pointer-events-none dark:hover:text-green-500 dark:focus:text-green-500 ${activeTab === 'basic-tabs-2' ? 'font-semibold border-green-600 text-green-600' : ''}`}
+            className={`hs-tab-active:font-semibold hs-tab-active:border-green-900 hs-tab-active:text-green-900 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-xl whitespace-nowrap text-gray-500 hover:text-green-900 focus:outline-none focus:text-green-900 disabled:opacity-50 disabled:pointer-events-none dark:hover:text-green-900 dark:focus:text-green-900 ${activeTab === 'basic-tabs-2' ? 'font-semibold border-green-900 text-green-900' : ''}`}
             id="basic-tabs-item-2"
             aria-selected={activeTab === 'basic-tabs-2'}
             onClick={() => handleTabClick('basic-tabs-2')}
