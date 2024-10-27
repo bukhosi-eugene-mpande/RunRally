@@ -5,7 +5,6 @@ import { Review } from '@/types';
 export const ReviewComponent: React.FC<{ review: Review }> = ({ review }) => {
   return (
     <div className="pt-4 pb-8 border-b space-y-6 shadow-sm rounded-medium bg-slate-50 max-xl:max-w-2xl max-xl:mx-auto mb-8">
-      
       <h3 className="font-manrope font-semibold text-xl sm:text-2xl leading-9 text-black mb-6 px-4">
         {review.title}
       </h3>

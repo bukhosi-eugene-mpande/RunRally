@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 const Breadcrumbs: React.FC = () => {
   const pathname = usePathname();
-  
+
   // Split the current path and remove empty strings
   const pathnames = pathname.split('/').filter((x) => x);
 
@@ -13,7 +13,10 @@ const Breadcrumbs: React.FC = () => {
     <ol className="flex items-center whitespace-nowrap">
       {/* Static breadcrumb for Home */}
       <li className="inline-flex items-center">
-        <Link href="/" className="flex items-center text-2xl text-gray-600 hover:text-gray-700 focus:outline-none focus:text-gray-600">
+        <Link
+          href="/"
+          className="flex items-center text-2xl text-gray-600 hover:text-gray-700 focus:outline-none focus:text-gray-600"
+        >
           Home
         </Link>
         <svg
