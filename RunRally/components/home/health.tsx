@@ -1,7 +1,11 @@
 'use client';
 import React, { useState } from 'react';
 
-export const Health = () => {
+interface HealthProps {
+  id: string;
+}
+
+export const Health: React.FC<HealthProps> = ({ id }) => {
   const HealthTips = [
     {
       Header: 'Start Gradually',
@@ -30,7 +34,7 @@ export const Health = () => {
   ];
 
   return (
-    <section className="bg-green-900 text-white">
+    <section id={id} className="bg-green-900 text-white">
       <div className="px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div className="max-w-xl mx-auto justify-center text-center">
           <h2 className="text-3xl font-bold sm:text-4xl">
