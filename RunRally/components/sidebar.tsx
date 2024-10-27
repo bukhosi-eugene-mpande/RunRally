@@ -1,91 +1,110 @@
-'use client';
-
+// components/sidebar.js
 import { useState, useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation'; // Import useRouter and usePathname hooks
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useRouter, usePathname } from 'next/navigation';
 
-// Extend HTMLAttributes to include className and other props
-const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
+interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
+  products: any[];
+  types: string[]; // Array of types for filtering
+  onFilterAndSort: (updatedProducts: any[]) => void;
+  onSortChange: (sortOption: string) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({
   className,
+  products,
+  types,
+  onFilterAndSort,
+  onSortChange,
   ...props
 }) => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [selectedFilter, setSelectedFilter] = useState<string>(''); // State for selected filter
+  const [selectedType, setSelectedType] = useState<string>(''); // State for type filter
   const [sortOption, setSortOption] = useState<string>(''); // State for sorting
+
   const categories = [
-    'Merchandise',
-    'Running vests',
-    'Fitness devices',
-    'Equipment',
+    { name: 'Merchandise', path: '/shop/merchandise' },
+    { name: 'Running vests', path: '/shop/running-vests' },
+    { name: 'Fitness devices', path: '/shop/fitbit' },
+    { name: 'Equipment', path: '/shop/equipment' },
   ];
+
   const router = useRouter();
-  const pathname = usePathname(); // Get the current path
+  const pathname = usePathname();
 
-  // Map URL paths to categories
-  const routeMap: Record<string, string> = {
-    '/shop/merchandise': 'Merchandise',
-    '/shop/running-vests': 'Running vests',
-    '/shop/fitbit': 'Fitness devices',
-    '/shop/equipment': 'Equipment',
-  };
-
-  // Update active category based on current pathname
   useEffect(() => {
-    const currentCategory = routeMap[pathname];
+    const currentCategory = categories.find((category) => category.path === pathname);
     if (currentCategory) {
-      setActiveCategory(currentCategory);
+      setActiveCategory(currentCategory.name);
     }
-  }, [pathname, routeMap]);
+  }, [pathname, categories]);
 
-  const handleCategoryClick = (category: string) => {
-    setActiveCategory(category);
-    // Save the active category to local storage
-    localStorage.setItem('activeCategory', category);
-
-    // Navigate to the corresponding route
-    const categoryPath = Object.entries(routeMap).find(
-      ([, value]) => value === category,
-    )?.[0];
-
-    if (categoryPath) {
-      router.push(categoryPath);
-    }
+  const handleCategoryClick = (category: { name: string; path: string }) => {
+    setActiveCategory(category.name);
+    localStorage.setItem('activeCategory', category.name);
+    router.push(category.path);
   };
 
-  // Handle filter change
-  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedFilter(event.target.value);
+  // Handle type filter change
+  const handleTypeFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedType = event.target.value;
+    setSelectedType(selectedType);
+
+    // Filter products based on selected type
+    const filteredProducts = selectedType
+      ? products.filter((product) => product.type === selectedType)
+      : products;
+
+    onFilterAndSort(filteredProducts);
   };
 
-  // Handle sort change
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortOption(event.target.value);
+    const selectedSort = event.target.value;
+    setSortOption(selectedSort);
+    onSortChange(selectedSort);
   };
 
   return (
-    <aside
-      className={`rounded bg-green-500 p-4 w-64 shadow-2xl ${className}`} // Apply shadow-lg for a 3D effect
-      {...props} // Spread other HTML attributes
-    >
+    <aside className={`rounded bg-green-500 p-4 w-64 shadow-2xl ${className}`} {...props}>
       <ul>
         {categories.map((category) => (
           <li
-            key={category}
+            key={category.name}
             onClick={() => handleCategoryClick(category)}
             className={`text-white px-4 py-2 mb-2 cursor-pointer text-center font-bold ${
-              activeCategory === category
+              activeCategory === category.name
                 ? 'bg-green-600 font-bold rounded'
                 : 'hover:bg-green-600 rounded'
             }`}
           >
-            {category}
+            {category.name}
           </li>
         ))}
       </ul>
       <hr className="border-t border-gray-100 my-4" />
+
+      {/* Type Filter Section */}
       <div className="mb-4">
+        <label htmlFor="type-filter" className="sr-only">Filter by Type</label>
+        <select
+          id="type-filter"
+          value={selectedType}
+          onChange={handleTypeFilterChange}
+          className="w-full py-1 px-2 bg-green-500 text-white hover:bg-green-600 rounded cursor-pointer"
+        >
+          <option value="">All Types</option>
+          {types.map((type) => (
+            <option key={type} value={type}>
+              {type.charAt(0).toUpperCase() + type.slice(1)}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <hr className="border-t border-gray-100 my-4" />
+
+      {/* Sorting Section */}
+      <div className="mb-4">
+        <label htmlFor="sort" className="sr-only">Sort By</label>
         <select
           id="sort"
           value={sortOption}
@@ -97,21 +116,6 @@ const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({
           <option value="price-desc">Price: High to Low</option>
         </select>
       </div>
-      <hr className="border-t border-gray-100 my-4" />
-      <div className="mb-4">
-        <select
-          id="filter"
-          value={selectedFilter}
-          onChange={handleFilterChange}
-          className="w-full py-1 px-2 bg-green-500 text-white hover:bg-green-600 rounded cursor-pointer"
-        >
-          <option value="">Filter By</option>
-          <option value="brand">Shirts</option>
-          <option value="size">Size</option>
-          <option value="color">Color</option>
-        </select>
-      </div>
-      <hr className="border-t border-gray-100 my-4" />
     </aside>
   );
 };
