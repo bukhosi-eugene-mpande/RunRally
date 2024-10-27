@@ -246,7 +246,7 @@ const ProductDetails: React.FC = () => {
                         onClick={() => setActiveSize(size)}
                         className={`border text-lg py-2 rounded-full px-1.5 sm:px-6 w-full font-semibold whitespace-nowrap shadow-md transition-all duration-300 hover:shadow-xl hover:shadow-gray-300 hover:bg-gray-50 hover:border-gray-300 ${
                           activeSize === size
-                            ? 'border-green-500 bg-green-50 text-green-700'
+                            ? 'border-green-900 bg-green-50 text-green-700'
                             : 'border-gray-200 text-gray-900'
                         }`}
                       >
@@ -301,9 +301,9 @@ const ProductDetails: React.FC = () => {
                       </svg>
                     </button>
                   </div>
-                  <button className="group py-4 px-5 rounded-full bg-green-50 text-green-600 font-semibold text-lg w-full flex items-center justify-center gap-2 shadow-sm shadow-transparent transition-all duration-500 hover:bg-green-100 hover:shadow-green-200">
+                  <button className="group py-4 px-5 rounded-full bg-green-50 text-green-900 font-semibold text-lg w-full flex items-center justify-center gap-2 shadow-sm shadow-transparent transition-all duration-500 hover:bg-green-100 hover:shadow-green-200">
                     <svg
-                      className="stroke-green-600 transition-all duration-500"
+                      className="stroke-green-900 transition-all duration-500"
                       width="22"
                       height="22"
                       viewBox="0 0 22 22"
@@ -339,7 +339,7 @@ const ProductDetails: React.FC = () => {
                       />
                     </svg>
                   </button>
-                  <button className="text-center w-full px-5 py-4 rounded-[100px] bg-green-600 flex items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-green-700 hover:shadow-green-400">
+                  <button className="text-center w-full px-5 py-4 rounded-[100px] bg-green-900 flex items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-green-700 hover:shadow-green-400">
                     Buy Now
                   </button>
                 </div>

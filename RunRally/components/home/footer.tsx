@@ -17,35 +17,35 @@ export const Footer = () => {
 
         <ul className="mt-12 flex flex-wrap text-xl justify-center gap-6 md:gap-8 lg:gap-12">
           <li>
-            <a className="text-black transition hover:text-green-500" href="#Shop">
+            <a className="text-black transition hover:text-green-900" href="#Shop">
               {' '}
               Shop{' '}
             </a>
           </li>
 
           <li>
-            <a className="text-black transition hover:text-green-500" href="#Health">
+            <a className="text-black transition hover:text-green-900" href="#Health">
               {' '}
               Health tips{' '}
             </a>
           </li>
 
           <li>
-            <a className="text-black transition hover:text-green-500" href="#Stories">
+            <a className="text-black transition hover:text-green-900" href="#Stories">
               {' '}
               Our Stories{' '}
             </a>
           </li>
 
           <li>
-            <a className="text-black transition hover:text-green-500" href="#Events">
+            <a className="text-black transition hover:text-green-900" href="#Events">
               {' '}
               Events{' '}
             </a>
           </li>
 
           <li>
-            <a className="text-black transition hover:text-green-500" href="#About">
+            <a className="text-black transition hover:text-green-900" href="#About">
               {' '}
               About Us{' '}
             </a>

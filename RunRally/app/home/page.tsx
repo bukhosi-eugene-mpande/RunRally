@@ -1,10 +1,6 @@
 'use client';
 // pages/shop.js
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-import Dropdown from '@/components/dropdown';
-import ProductList from '@/components/productlist';
-import Sidebar from '@/components/sidebar';
 import { Navbar } from '@/components/navbar';
 import { Banner } from '@/components/home/banner';
 import { Health } from '@/components/home/health';

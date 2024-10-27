@@ -66,7 +66,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
               <img
                 src={image}
                 alt={`Thumbnail image ${index + 1}`}
-                className="cursor-pointer bg-slate-100 border rounded transition-all duration-500 hover:border-green-600 slide:border-green-600"
+                className="cursor-pointer bg-slate-100 border rounded transition-all duration-500 hover:border-green-900 slide:border-green-900"
               />
             </div>
           ))}

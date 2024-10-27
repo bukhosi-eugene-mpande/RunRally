@@ -15,7 +15,7 @@ export const ReviewComponent: React.FC<{ review: Review }> = ({ review }) => {
             alt={`${review.author} image`}
             className="w-8 h-8 rounded-full"
           />
-          <h6 className="font-semibold text-lg leading-8 text-green-600">
+          <h6 className="font-semibold text-lg leading-8 text-green-900">
             {review.author}
           </h6>
         </div>

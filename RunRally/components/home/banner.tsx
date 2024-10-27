@@ -27,14 +27,14 @@ export const Banner: React.FC<BannerProps> = ({ id }) => {
           <div className="mt-8 flex justify-center flex-wrap gap-4 text-center">
             <a
               href="/shop/merchandise"
-              className="block w-full rounded-xl bg-green-600 px-12 py-3 text-lg font-medium text-white shadow hover:bg-green-700 focus:outline-none focus:ring active:bg-green-500 sm:w-auto"
+              className="block w-full rounded-xl bg-green-900 px-12 py-3 text-lg font-medium text-white shadow hover:bg-green-700 focus:outline-none focus:ring active:bg-green-900 sm:w-auto"
             >
               Shop Now
             </a>
 
             <a
               href="#Health"
-              className="block w-full rounded-xl bg-white px-12 py-3 text-lg font-medium text-green-600 shadow hover:text-green-700 focus:outline-none focus:ring active:text-green-500 sm:w-auto"
+              className="block w-full rounded-xl bg-white px-12 py-3 text-lg font-medium text-green-900 shadow hover:text-green-700 focus:outline-none focus:ring active:text-green-900 sm:w-auto"
             >
               Health Tips
             </a>

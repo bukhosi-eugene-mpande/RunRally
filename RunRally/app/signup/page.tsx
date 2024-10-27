@@ -167,7 +167,7 @@ export default function SignIn() {
                       />
                       {emailStart &&
                         (isValid ? (
-                          <p className="mt-2 text-md font-bold text-green-600 dark:text-green-500">
+                          <p className="mt-2 text-md font-bold text-green-900 dark:text-green-900">
                             <span className="font-extrabold">Well done!</span>{' '}
                             Your email is valid.
                           </p>
@@ -284,7 +284,7 @@ export default function SignIn() {
 
                     <div className="mt-6">
                       <button
-                        className="w-full text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
+                        className="w-full text-lg font-extrabold px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-green-900 rounded-lg hover:bg-green-900 focus:outline-none focus:bg-green-400 focus:ring focus:ring-green-300 focus:ring-opacity-50"
                         onClick={handleSignUpClick}
                       >
                         Sign Up

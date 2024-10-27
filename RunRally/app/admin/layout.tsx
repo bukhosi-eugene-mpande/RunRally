@@ -34,7 +34,7 @@ export default function AdminLayout({
   const getLinkClassName = (path: string) => {
     return `transition-colors hover:text-xl hover:underline hover:underline-offset-4 hover:text-green-700 ${
       isCurrentPage(path)
-        ? 'text-foreground text-green-600 font-bold underline underline-offset-4 text-xl'
+        ? 'text-foreground text-green-900 font-bold underline underline-offset-4 text-xl'
         : 'text-xl text-gray-600'
     }`;
   };
@@ -128,9 +128,17 @@ export default function AdminLayout({
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Home</DropdownMenuItem>
+              <DropdownMenuItem>
+                < Link href="/home" >
+                 Home
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/" >
+                Logout
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
