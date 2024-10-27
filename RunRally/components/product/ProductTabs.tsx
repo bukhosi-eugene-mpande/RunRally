@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DescriptionTab from '@/components/product/description';
 import ReviewTab from '@/components/product/reviews';
+import { motion } from 'framer-motion';
 
 interface TabsProps {
   description: string;
@@ -13,6 +14,22 @@ const Tabs: React.FC<TabsProps> = ({ description, details }) => {
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
   };
+
+  // Variants for the sliding animation
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0,
+    }),
+    center: { x: 0, opacity: 1 },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 100 : -100,
+      opacity: 0,
+    }),
+  };
+
+  // Determine direction based on the active tab
+  const direction = activeTab === 'basic-tabs-1' ? 1 : -1;
 
   return (
     <div className="w-full bg-white rounded-lg shadow-lg">
@@ -49,22 +66,31 @@ const Tabs: React.FC<TabsProps> = ({ description, details }) => {
       </div>
 
       <div className="mt-3 p-4">
-        <div
-          id="basic-tabs-1"
-          role="tabpanel"
-          aria-labelledby="basic-tabs-item-1"
-          className={activeTab === 'basic-tabs-1' ? '' : 'hidden'}
-        >
-          <DescriptionTab descrip={description} det={details} />
-        </div>
-        <div
-          id="basic-tabs-2"
-          role="tabpanel"
-          aria-labelledby="basic-tabs-item-2"
-          className={activeTab === 'basic-tabs-2' ? '' : 'hidden'}
-        >
-          <ReviewTab />
-        </div>
+        {activeTab === 'basic-tabs-1' ? (
+          <motion.div
+            key="description"
+            custom={direction}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            variants={variants}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          >
+            <DescriptionTab descrip={description} det={details} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="reviews"
+            custom={direction}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            variants={variants}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          >
+            <ReviewTab />
+          </motion.div>
+        )}
       </div>
     </div>
   );

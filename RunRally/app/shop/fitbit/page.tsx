@@ -3,7 +3,6 @@
 import Sidebar from '../../../components/sidebar';
 import ProductList from '../../../components/productlist';
 import Breadcrumbs from '../../../components/breadcrumbs';
-import { Navbar } from '@/components/navbar';
 import { useState } from 'react';
 
 const FitBitPage = () => {
@@ -42,9 +41,6 @@ const FitBitPage = () => {
 
   return (
     <div>
-      <div className="fixed top-0 left-0 right-0 z-50">
-        <Navbar />
-      </div>
       <div className="mt-8 px-8">
         <Breadcrumbs />
       </div>

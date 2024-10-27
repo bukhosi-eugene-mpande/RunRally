@@ -13,7 +13,7 @@ export const Navbar = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-teal-600" href="#">
+            <a className="block text-teal-600" href="/home">
               <span className="sr-only">Home</span>
               <img src="/black_logo_crp.png" alt="RunRally" className="h-10" />
             </a>
@@ -95,7 +95,7 @@ export const Navbar = () => {
                 >
                   <div className="p-2">
                     <a
-                      href="#"
+                      href="/admin"
                       className="block rounded-lg px-4 py-2 text-sm text-black hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
                     >
@@ -108,6 +108,13 @@ export const Navbar = () => {
                       type="submit"
                       className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
                       role="menuitem"
+                      onClick={async () => {
+                        try {
+                          window.location.href = "/login"; // Adjust to your login route
+                        } catch (error) {
+                          console.error("Logout failed:", error);
+                        }
+                      }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
